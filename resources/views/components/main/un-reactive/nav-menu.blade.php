@@ -9,36 +9,36 @@
                 <div class="d-flex categori-dropdown-inner">
                     <ul>
                         <li>
-                            <a href="shop-grid-right.html"> <img src="assets/imgs/theme/icons/category-1.svg" alt="" />Milks and Dairies</a>
+                            <a href="shop-grid-right.html"> <img src="assets/main/imgs/theme/icons/category-1.svg" alt="" />Milks and Dairies</a>
                         </li>
                         <li>
-                            <a href="shop-grid-right.html"> <img src="assets/imgs/theme/icons/category-2.svg" alt="" />Clothing & beauty</a>
+                            <a href="shop-grid-right.html"> <img src="assets/main/imgs/theme/icons/category-2.svg" alt="" />Clothing & beauty</a>
                         </li>
                         <li>
-                            <a href="shop-grid-right.html"> <img src="assets/imgs/theme/icons/category-3.svg" alt="" />Pet Foods & Toy</a>
+                            <a href="shop-grid-right.html"> <img src="assets/main/imgs/theme/icons/category-3.svg" alt="" />Pet Foods & Toy</a>
                         </li>
                         <li>
-                            <a href="shop-grid-right.html"> <img src="assets/imgs/theme/icons/category-4.svg" alt="" />Baking material</a>
+                            <a href="shop-grid-right.html"> <img src="assets/main/imgs/theme/icons/category-4.svg" alt="" />Baking material</a>
                         </li>
                         <li>
-                            <a href="shop-grid-right.html"> <img src="assets/imgs/theme/icons/category-5.svg" alt="" />Fresh Fruit</a>
+                            <a href="shop-grid-right.html"> <img src="assets/main/imgs/theme/icons/category-5.svg" alt="" />Fresh Fruit</a>
                         </li>
                     </ul>
                     <ul class="end">
                         <li>
-                            <a href="shop-grid-right.html"> <img src="assets/imgs/theme/icons/category-6.svg" alt="" />Wines & Drinks</a>
+                            <a href="shop-grid-right.html"> <img src="assets/main/imgs/theme/icons/category-6.svg" alt="" />Wines & Drinks</a>
                         </li>
                         <li>
-                            <a href="shop-grid-right.html"> <img src="assets/imgs/theme/icons/category-7.svg" alt="" />Fresh Seafood</a>
+                            <a href="shop-grid-right.html"> <img src="assets/main/imgs/theme/icons/category-7.svg" alt="" />Fresh Seafood</a>
                         </li>
                         <li>
-                            <a href="shop-grid-right.html"> <img src="assets/imgs/theme/icons/category-8.svg" alt="" />Fast food</a>
+                            <a href="shop-grid-right.html"> <img src="assets/main/imgs/theme/icons/category-8.svg" alt="" />Fast food</a>
                         </li>
                         <li>
-                            <a href="shop-grid-right.html"> <img src="assets/imgs/theme/icons/category-9.svg" alt="" />Vegetables</a>
+                            <a href="shop-grid-right.html"> <img src="assets/main/imgs/theme/icons/category-9.svg" alt="" />Vegetables</a>
                         </li>
                         <li>
-                            <a href="shop-grid-right.html"> <img src="assets/imgs/theme/icons/category-10.svg" alt="" />Bread and Juice</a>
+                            <a href="shop-grid-right.html"> <img src="assets/main/imgs/theme/icons/category-10.svg" alt="" />Bread and Juice</a>
                         </li>
                     </ul>
                 </div>
@@ -46,18 +46,18 @@
                     <div class="d-flex categori-dropdown-inner">
                         <ul>
                             <li>
-                                <a href="shop-grid-right.html"> <img src="assets/imgs/theme/icons/icon-1.svg" alt="" />Milks and Dairies</a>
+                                <a href="shop-grid-right.html"> <img src="assets/main/imgs/theme/icons/icon-1.svg" alt="" />Milks and Dairies</a>
                             </li>
                             <li>
-                                <a href="shop-grid-right.html"> <img src="assets/imgs/theme/icons/icon-2.svg" alt="" />Clothing & beauty</a>
+                                <a href="shop-grid-right.html"> <img src="assets/main/imgs/theme/icons/icon-2.svg" alt="" />Clothing & beauty</a>
                             </li>
                         </ul>
                         <ul class="end">
                             <li>
-                                <a href="shop-grid-right.html"> <img src="assets/imgs/theme/icons/icon-3.svg" alt="" />Wines & Drinks</a>
+                                <a href="shop-grid-right.html"> <img src="assets/main/imgs/theme/icons/icon-3.svg" alt="" />Wines & Drinks</a>
                             </li>
                             <li>
-                                <a href="shop-grid-right.html"> <img src="assets/imgs/theme/icons/icon-4.svg" alt="" />Fresh Seafood</a>
+                                <a href="shop-grid-right.html"> <img src="assets/main/imgs/theme/icons/icon-4.svg" alt="" />Fresh Seafood</a>
                             </li>
                         </ul>
                     </div>
@@ -68,7 +68,7 @@
         <div class="main-menu main-menu-padding-1 main-menu-lh-2 d-none d-lg-block font-heading">
             <nav>
                 <ul>
-                    <li class="hot-deals"><img src="assets/imgs/theme/icons/icon-hot.svg" alt="hot deals" /><a href="shop-grid-right.html">Hot Deals</a></li>
+                    <li class="hot-deals"><img src="assets/main/imgs/theme/icons/icon-hot.svg" alt="hot deals" /><a href="shop-grid-right.html">Hot Deals</a></li>
                     <li>
                         <a class="active" href="index.html">Home <i class="fi-rs-angle-down"></i></a>
                         <ul class="sub-menu">
@@ -167,7 +167,7 @@
                             </li>
                             <li class="sub-mega-menu sub-mega-menu-width-34">
                                 <div class="menu-banner-wrap">
-                                    <a href="shop-product-right.html"><img src="assets/imgs/banner/banner-menu.png" alt="Nest" /></a>
+                                    <a href="shop-product-right.html"><img src="assets/main/imgs/banner/banner-menu.png" alt="Nest" /></a>
                                     <div class="menu-banner-content">
                                         <h4>Hot deals</h4>
                                         <h3>
@@ -230,6 +230,6 @@
         </div>
     </div>
     <div class="hotline d-none d-lg-flex">
-        <img src="assets/imgs/theme/icons/icon-headphone.svg" alt="hotline" />
+        <img src="assets/main/imgs/theme/icons/icon-headphone.svg" alt="hotline" />
         <p>1900 - 888<span>24/7 Support Center</span></p>
     </div>

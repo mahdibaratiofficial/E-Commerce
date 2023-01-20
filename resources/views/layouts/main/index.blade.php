@@ -13,9 +13,8 @@
         <!-- Favicon -->
         <link rel="shortcut icon" type="image/x-icon" href="assets/imgs/theme/favicon.svg" />
 
-        <!-- Template CSS -->
-        <link rel="stylesheet" href="{{ asset('assets/css/plugins/animate.min.css') }}" />
-        <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}" />
+        <!-- Style Assets -->
+        @include('layouts.assets_path.main_styles')
 
         <livewire:styles />
     </head>

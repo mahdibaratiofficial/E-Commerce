@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\PasswordReset;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +15,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    
+    PasswordReset::factory()->create();
+
     return view('layouts.main.index');
 });

@@ -11,23 +11,23 @@
         <meta property="og:url" content="" />
         <meta property="og:image" content="" />
         <!-- Favicon -->
-        <link rel="shortcut icon" type="image/x-icon" href="assets/imgs/theme/favicon.svg" />
+        <link rel="shortcut icon" type="image/x-icon" href="assets/main/imgs/theme/favicon.svg" />
 
         <!-- Style Assets -->
         @include('layouts.assets_path.main_styles')
 
+        <!-- livewire Assets -->
         <livewire:styles />
     </head>
 
     <body>
-
         <x-main.un-reactive.header />
 
         <div class="mobile-header-active mobile-header-wrapper-style">
             <div class="mobile-header-wrapper-inner">
                 <div class="mobile-header-top">
                     <div class="mobile-header-logo">
-                        <a href="index.html"><img src="assets/imgs/theme/logo.svg" alt="logo" /></a>
+                        <a href="index.html"><img src="assets/main/imgs/theme/logo.svg" alt="logo" /></a>
                     </div>
                     <div class="mobile-menu-close close-style-wrap close-style-position-inherit">
                         <button class="close-style search-close">
@@ -193,11 +193,11 @@
                     </div>
                     <div class="mobile-social-icon mb-50">
                         <h6 class="mb-15">Follow Us</h6>
-                        <a href="index.html#"><img src="assets/imgs/theme/icons/icon-facebook-white.svg" alt="" /></a>
-                        <a href="index.html#"><img src="assets/imgs/theme/icons/icon-twitter-white.svg" alt="" /></a>
-                        <a href="index.html#"><img src="assets/imgs/theme/icons/icon-instagram-white.svg" alt="" /></a>
-                        <a href="index.html#"><img src="assets/imgs/theme/icons/icon-pinterest-white.svg" alt="" /></a>
-                        <a href="index.html#"><img src="assets/imgs/theme/icons/icon-youtube-white.svg" alt="" /></a>
+                        <a href="index.html#"><img src="assets/main/imgs/theme/icons/icon-facebook-white.svg" alt="" /></a>
+                        <a href="index.html#"><img src="assets/main/imgs/theme/icons/icon-twitter-white.svg" alt="" /></a>
+                        <a href="index.html#"><img src="assets/main/imgs/theme/icons/icon-instagram-white.svg" alt="" /></a>
+                        <a href="index.html#"><img src="assets/main/imgs/theme/icons/icon-pinterest-white.svg" alt="" /></a>
+                        <a href="index.html#"><img src="assets/main/imgs/theme/icons/icon-youtube-white.svg" alt="" /></a>
                     </div>
                     <div class="site-copyright">Copyright 2021 © Nest. All rights reserved. Powered by AliThemes.</div>
                 </div>
@@ -267,40 +267,14 @@
             <div class="preloader d-flex align-items-center justify-content-center">
                 <div class="preloader-inner position-relative">
                     <div class="text-center">
-                        <img src="assets/imgs/theme/loading.gif" alt="" />
+                        <img src="assets/main/imgs/theme/loading.gif" alt="" />
                     </div>
                 </div>
             </div>
         </div> -->
 
 
-
-        {{-- livewire Scripts --}}
-        <livewire:scripts />
-
-        <!-- Vendor JS-->
-        <script data-cfasync="false" src="../../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-        <script src="{{ asset('assets/js/vendor/modernizr-3.6.0.min.js') }}"></script>
-        <script src="{{ asset('assets/js/vendor/jquery-3.6.0.min.js')}}"></script>
-        <script src="{{ asset('assets/js/vendor/jquery-migrate-3.3.0.min.js')}}"></script>
-        <script src="{{ asset('assets/js/vendor/bootstrap.bundle.min.js')}}"></script>
-        <script src="{{ asset('assets/js/plugins/slick.js')}}"></script>
-        <script src="{{ asset('assets/js/plugins/jquery.syotimer.min.js')}}"></script>
-        <script src="{{ asset('assets/js/plugins/waypoints.js')}}"></script>
-        <script src="{{ asset('assets/js/plugins/wow.js')}}"></script>
-        <script src="{{ asset('assets/js/plugins/perfect-scrollbar.js')}}"></script>
-        <script src="{{ asset('assets/js/plugins/magnific-popup.js')}}"></script>
-        <script src="{{ asset('assets/js/plugins/select2.min.js')}}"></script>
-        <script src="{{ asset('assets/js/plugins/counterup.js')}}"></script>
-        <script src="{{ asset('assets/js/plugins/jquery.countdown.min.js')}}"></script>
-        <script src="{{ asset('assets/js/plugins/images-loaded.js')}}"></script>
-        <script src="{{ asset('assets/js/plugins/isotope.js')}}"></script>
-        <script src="{{ asset('assets/js/plugins/scrollup.js')}}"></script>
-        <script src="{{ asset('assets/js/plugins/jquery.vticker-min.js')}}"></script>
-        <script src="{{ asset('assets/js/plugins/jquery.theia.sticky.js')}}"></script>
-        <script src="{{ asset('assets/js/plugins/jquery.elevatezoom.js')}}"></script>
-        <!-- Template  JS -->
-        <script src="{{ asset('assets/js/main.js') }}"></script>
-        <script src="{{ asset('assets/js/shop.js') }}"></script>
+        @include('layouts.assets_path.main_scripts')
+        
     </body>
 </html>

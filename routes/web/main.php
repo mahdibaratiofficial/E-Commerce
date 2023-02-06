@@ -1,7 +1,13 @@
 <?php
 
 use App\Models\PasswordReset;
+use GuzzleHttp\Client;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,9 +20,33 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    
-    PasswordReset::factory()->create();
+Route::view('/', 'layouts.index');
 
-    return view('layouts.main.index');
-});
+// Login & Logout Routes------------------------------------------------
+
+Route::view('login', 'auth.login');
+Route::post('login', [LoginController::class, 'login']);
+
+Route::post('logout', [LoginController::class, 'logOut']);
+
+// OTP Login
+// Social Login
+
+//End Login & Logout Routes---------------------------------------------
+
+
+
+// Register Routes------------------------------------------------------
+
+Route::view('register', 'auth.register');
+Route::post('register', [RegisterContoller::class, 'register']);
+
+//OTP Controller Routes
+// Social Login Controller Routes
+
+
+// End Register Routes--------------------------------------------------
+
+
+
+

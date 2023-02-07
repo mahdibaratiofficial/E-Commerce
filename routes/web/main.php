@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\OAuth\OAuthFactoryController;
+use App\Http\Controllers\Auth\RegisterContoller;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +22,7 @@ use App\Http\Controllers\Auth\LoginController;
 |
 */
 
-Route::view('/', 'layouts.index');
+Route::view('/', 'main.index');
 
 // Login & Logout Routes------------------------------------------------
 
@@ -28,9 +30,6 @@ Route::view('login', 'auth.login');
 Route::post('login', [LoginController::class, 'login']);
 
 Route::post('logout', [LoginController::class, 'logOut']);
-
-// OTP Login
-// Social Login
 
 //End Login & Logout Routes---------------------------------------------
 
@@ -41,11 +40,17 @@ Route::post('logout', [LoginController::class, 'logOut']);
 Route::view('register', 'auth.register');
 Route::post('register', [RegisterContoller::class, 'register']);
 
-//OTP Controller Routes
-// Social Login Controller Routes
-
-
 // End Register Routes--------------------------------------------------
+
+
+// OAuth Routes---------------------------------------------------------
+
+Route::get('oauth/{social}', [OAuthFactoryController::class, 'openOAuthPage']);
+Route::get('oauth/{social}/check', [OAuthFactoryController::class, 'OAuthCallBack']);
+
+Route::get('test', function () {
+    return Auth::user();
+});
 
 
 

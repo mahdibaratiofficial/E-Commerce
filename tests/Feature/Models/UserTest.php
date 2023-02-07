@@ -18,8 +18,12 @@ class UserTest extends TestCase
      */
     public function testInsertUserData()
     {
-        User::factory()->create();
+        $user=User::factory()->make()->toArray();
 
-        $this->assertDatabaseCount('users',1);
+        $user['password'] = Hash::make('123456789');
+
+        $userCreated=User::create($user);
+
+        $this->assertTrue(isset($userCreated->id));
     }
 }

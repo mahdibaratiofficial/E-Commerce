@@ -24,6 +24,7 @@ class PostFactory extends Factory
             'title'=>$this->faker->title(),
             'description'=>$this->faker->text(),
             'views'=>rand(1,10000),
+            'user_id'=>1
         ];
     }
 }

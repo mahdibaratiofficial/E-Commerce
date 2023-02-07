@@ -17,19 +17,24 @@ return new class extends Migration
 
             $table->id();
 
-            $table->string('name');
+            $table->string('name')->nullable();
 
             $table->string('username')->nullable()->unique();
             
-            $table->string('email')->unique();
+            $table->string('email')->unique()->nullable();
             $table->timestamp('email_verified_at')->nullable();
 
-            $table->string('number', 11)->unique();
+            $table->string('number', 11)->unique()->nullable();
             $table->timestamp('number_verified_at')->nullable();
 
-            $table->string('password');
+            $table->string('password')->nullable();
 
-            $table->timestamp('birth_day');
+            $table->timestamp('birth_day')->nullable();
+
+            // c:client
+            // v:vendor
+            // a:admin
+            $table->enum('type',['c','v','a']);
 
             $table->rememberToken();
 

@@ -23,6 +23,8 @@ return new class extends Migration
             $table->string('code',7);
 
             $table->timestamp('expire_at');
+
+            $table->primary('code');
         });
     }
 

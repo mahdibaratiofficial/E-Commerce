@@ -13,12 +13,12 @@ use App\Http\Controllers\Auth\Traits\Login as LoginTrait;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Redirect;
 
 class LoginController extends Controller
 {
 
     use LoginTrait;
-
 
     /**
      * Where to redirect users after login.
@@ -34,21 +34,21 @@ class LoginController extends Controller
      * @param Request $request
      * @return void
      */
-    public function login(Request $request)
+    public function login()
     {
         $data = $this->validation($request);
 
         $user = $this->check($data);
 
         if (!$user)
-            return redirect()->to('login');
+            Redirect::to('login');
         
         Auth::login($user);
 
         if (!Auth::hasUser())
             return redirect()->to('login');
 
-        return redirect()->route($this->redirectTo);  
+        return redirect()->to($this->redirectTo);  
     }
 
     /**
@@ -57,11 +57,11 @@ class LoginController extends Controller
      *
      * @return Redirector
      */
-    public function logOut():Redirector
+    public function logOut()
     {
         Auth::logout();
 
         if (!Auth::hasUser())
-            return redirect('/');
+            return redirect()->route('login');
     }
 }

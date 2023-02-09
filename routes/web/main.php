@@ -9,7 +9,9 @@ use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\OAuth\OAuthFactoryController;
+use App\Http\Controllers\Auth\OtpController;
 use App\Http\Controllers\Auth\RegisterContoller;
+use App\Models\ActiveCode;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,32 +26,37 @@ use App\Http\Controllers\Auth\RegisterContoller;
 
 Route::view('/', 'main.index');
 
-// Login & Logout Routes------------------------------------------------
 
-Route::view('login', 'auth.login');
-Route::post('login', [LoginController::class, 'login']);
-
-Route::post('logout', [LoginController::class, 'logOut']);
-
-//End Login & Logout Routes---------------------------------------------
+Route::middleware(['guest'])->group(function () {
+    // Login Routes------------------------------------------------
+    Route::view('/login', 'auth.login')->name('login');
+    Route::post('/login', [LoginController::class, 'login'])->name('login');
+    //End Login Routes---------------------------------------------
 
 
+    // Register Routes------------------------------------------------------
+    Route::view('register', 'auth.register')->name('register');
+    Route::post('register', [RegisterContoller::class, 'register'])->name('register');
+    // End Register Routes--------------------------------------------------
 
-// Register Routes------------------------------------------------------
+    // OAuth Routes----------------------------------------------------------------------
+    Route::get('oauth/{social}', [OAuthFactoryController::class, 'openOAuthPage'])->name('oauth');
+    Route::get('oauth/{social}/check', [OAuthFactoryController::class, 'OAuthCallBack'])->name('oauth.callback');
+    // Ends OAuth Routes------------------------------------------------------------------
 
-Route::view('register', 'auth.register');
-Route::post('register', [RegisterContoller::class, 'register']);
+});
 
-// End Register Routes--------------------------------------------------
+Route::post('login-with-number', [OtpController::class, 'login'])->name('otp.login');
 
+Route::middleware(['auth'])->group(function () {
+    // LogOut Roues-----------------------------------------
+    Route::post('logout', [LoginController::class, 'logOut'])->name('logout');
+    // End LogOut Roues-------------------------------------
+});
 
-// OAuth Routes---------------------------------------------------------
-
-Route::get('oauth/{social}', [OAuthFactoryController::class, 'openOAuthPage']);
-Route::get('oauth/{social}/check', [OAuthFactoryController::class, 'OAuthCallBack']);
 
 Route::get('test', function () {
-    return Auth::user();
+    ActiveCode::generateCode();
 });
 
 

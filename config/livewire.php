@@ -27,7 +27,7 @@ return [
     |
     */
 
-    'view_path' => resource_path('/views/components/'),
+    'view_path' => resource_path('views/components'),
 
     /*
     |--------------------------------------------------------------------------

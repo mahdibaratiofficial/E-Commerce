@@ -77,7 +77,7 @@ class Google implements socialsinterfaces
             if (!$user->hasVerifiedEmail())
                 $user->markEmailAsVerified();
         }
-    }
+    }   
 }
 
 

@@ -1,3 +1,4 @@
+<livewire:scripts />
 <script src="vendors/js/vendor.bundle.base.js"></script>
 <!-- endinject -->
 <!-- Plugin js for this page -->

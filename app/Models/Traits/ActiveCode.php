@@ -36,6 +36,7 @@ trait ActiveCode
 
         if (isset($createdCode->code))
         {
+            \App\Models\ActiveCode::deleteExpiredCodes();;
             return $createdCode->code;
         }
         else
@@ -69,23 +70,41 @@ trait ActiveCode
 
     public function scopeVerifyCode($query,$code)
     {
-        $activeCode = \App\Models\ActiveCode::where('code', $code)->first();
+        // the freshest code
+        $freshestCode = \App\Models\ActiveCode::max('expire_at');
+
+        //select the code
+        $activeCode = \App\Models\ActiveCode::where('code', $code)->where('expire_at',$freshestCode)->first();
 
         if (!$activeCode)
-            return redirect('activeCodePage')->with('code wrong');
+            return 'not exists';
 
-        if($activeCode->ip_address!=request()->getClientIp())
-            return redirect('activeCodePage')->with('not allowed device');
+        if ($activeCode->ip_address != request()->getClientIp())
+            return 'diffrent device';
         
         if(Auth::hasUser())
             if(!$activeCode->user()->get())
-                return redirect('activeCodePage')->with('diffrent user');
+                return 'diffrent user';
 
         if ($activeCode->expire_at < now())
-            return redirect('activeCode')->with('code expire');
+            return 'code expire';
+
+        // delete used Code
+        // $activeCode->delete();
+
           
         return true;
     } 
+
+    public function scopeDeleteExpiredCodes()
+    {
+        $codes = \App\Models\ActiveCode::where('expire_at', '<', now())->delete();
+    }
+
+    public function scopeDeleteUserOtpCodes()
+    {
+        \App\Models\ActiveCode::user()->delete();
+    }
 }
 
 

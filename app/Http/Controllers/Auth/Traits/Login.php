@@ -10,22 +10,25 @@ trait Login
     private function validation(Request $request)
     {
         return $request->validate([
-            'name' => ['required', 'min:3', 'max:255'],
+            'username' => ['required', 'min:3', 'max:255'],
             'password' => ['required', 'min:6', 'max:255']
         ]);
     }
 
-    private function findUser($data)
+    public function findUser($data)
     {
         return User::where('email', $data)->orWhere('username', $data)->orWhere('number', $data)->first();
     }
 
 
-    private function check(array $data)
-    {
-        $user=$this->findUser($data['name']);
-
-        return Hash::check($data['password'], $user->password) ? $user : false;
+    public function check(array $data)
+    { 
+        $user=$this->findUser($data['username']);
+        
+        if($data['password'])
+            return Hash::check($data['password'], $user->password) ? $user : false;
+        else
+            return false;
     }
 
 

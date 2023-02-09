@@ -15,7 +15,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-xl-6 col-lg-4">
+                <div class="col-xl-6 col-lg-1">
                     <div class="text-center">
                         <div id="news-flash" class="d-inline-block">
                             <ul>
@@ -196,7 +196,10 @@
                                             <a href="page-account.html"><i class="fi fi-rs-settings-sliders mr-10"></i>Setting</a>
                                         </li>
                                         <li>
-                                            <a href="page-login.html"><i class="fi fi-rs-sign-out mr-10"></i>Sign out</a>
+                                            <form method="POST" action="/logout">
+                                                @csrf
+                                                <button type="submit"><i class="fi fi-rs-sign-out mr-10"></i>Sign out</button>
+                                            </form>
                                         </li>
                                     </ul>
                                 </div>

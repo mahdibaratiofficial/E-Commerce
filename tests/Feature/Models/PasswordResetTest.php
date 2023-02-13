@@ -17,7 +17,7 @@ class PasswordResetTest extends TestCase
      */
     public function testCreatePasswordReset()
     {
-       $data=PasswordReset::factory()->make()->toArray();
+        $data=PasswordReset::factory()->make()->toArray();
 
         PasswordReset::create($data);
 

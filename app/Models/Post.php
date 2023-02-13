@@ -14,8 +14,11 @@ class Post extends Model
         'title',
         'description',
         'views',
-        'user_id'
+        'user_id',
+        'time_to_read'
     ];
+
+    protected $table='posts';
 
     /**
      * Relation One to Many with user

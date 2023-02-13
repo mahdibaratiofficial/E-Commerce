@@ -66,4 +66,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(ActiveCode::class);
     }
+
+
+    public function getRouteKeyName()
+    {
+        return 'username';
+    }
 }

@@ -2,6 +2,7 @@
 
 namespace Tests\Feature\Models;
 
+use App\Models\Comment;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
@@ -13,10 +14,10 @@ class CommentTest extends TestCase
      *
      * @return void
      */
-    public function test_example()
+    public function testInsertComment()
     {
-        $response = $this->get('/');
+        $comment=Comment::factory()->create()->toArray();
 
-        $response->assertStatus(200);
+        $this->assertDatabaseHas('comments',$comment);
     }
 }

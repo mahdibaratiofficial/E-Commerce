@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Comment;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -24,5 +25,11 @@ class CommentFactory extends Factory
             'like'=>rand(1,100),
             'dislike'=>rand(2,40)
         ];
+    }
+
+
+    public function testPolyMorphicRelation()
+    {
+        
     }
 }

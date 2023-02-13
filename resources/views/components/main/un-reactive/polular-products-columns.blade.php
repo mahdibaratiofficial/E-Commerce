@@ -6,7 +6,7 @@
                 <div class="product-list-small animated animated">
                     <article class="row align-items-center hover-up">
                         <figure class="col-md-4 mb-0">
-                            <a href="shop-product-right.html"><img src="assets/main/imgs/shop/thumbnail-1.jpg" alt="" /></a>
+                            <a href="shop-product-right.html"><img src="/assets/main/imgs/shop/thumbnail-1.jpg" alt="" /></a>
                         </figure>
                         <div class="col-md-8 mb-0">
                             <h6>
@@ -26,7 +26,7 @@
                     </article>
                     <article class="row align-items-center hover-up">
                         <figure class="col-md-4 mb-0">
-                            <a href="shop-product-right.html"><img src="assets/main/imgs/shop/thumbnail-2.jpg" alt="" /></a>
+                            <a href="shop-product-right.html"><img src="/assets/main/imgs/shop/thumbnail-2.jpg" alt="" /></a>
                         </figure>
                         <div class="col-md-8 mb-0">
                             <h6>
@@ -46,7 +46,7 @@
                     </article>
                     <article class="row align-items-center hover-up">
                         <figure class="col-md-4 mb-0">
-                            <a href="shop-product-right.html"><img src="assets/main/imgs/shop/thumbnail-3.jpg" alt="" /></a>
+                            <a href="shop-product-right.html"><img src="/assets/main/imgs/shop/thumbnail-3.jpg" alt="" /></a>
                         </figure>
                         <div class="col-md-8 mb-0">
                             <h6>
@@ -71,7 +71,7 @@
                 <div class="product-list-small animated animated">
                     <article class="row align-items-center hover-up">
                         <figure class="col-md-4 mb-0">
-                            <a href="shop-product-right.html"><img src="assets/main/imgs/shop/thumbnail-4.jpg" alt="" /></a>
+                            <a href="shop-product-right.html"><img src="/assets/main/imgs/shop/thumbnail-4.jpg" alt="" /></a>
                         </figure>
                         <div class="col-md-8 mb-0">
                             <h6>
@@ -91,7 +91,7 @@
                     </article>
                     <article class="row align-items-center hover-up">
                         <figure class="col-md-4 mb-0">
-                            <a href="shop-product-right.html"><img src="assets/main/imgs/shop/thumbnail-5.jpg" alt="" /></a>
+                            <a href="shop-product-right.html"><img src="/assets/main/imgs/shop/thumbnail-5.jpg" alt="" /></a>
                         </figure>
                         <div class="col-md-8 mb-0">
                             <h6>
@@ -111,7 +111,7 @@
                     </article>
                     <article class="row align-items-center hover-up">
                         <figure class="col-md-4 mb-0">
-                            <a href="shop-product-right.html"><img src="assets/main/imgs/shop/thumbnail-6.jpg" alt="" /></a>
+                            <a href="shop-product-right.html"><img src="/assets/main/imgs/shop/thumbnail-6.jpg" alt="" /></a>
                         </figure>
                         <div class="col-md-8 mb-0">
                             <h6>
@@ -136,7 +136,7 @@
                 <div class="product-list-small animated animated">
                     <article class="row align-items-center hover-up">
                         <figure class="col-md-4 mb-0">
-                            <a href="shop-product-right.html"><img src="assets/main/imgs/shop/thumbnail-7.jpg" alt="" /></a>
+                            <a href="shop-product-right.html"><img src="/assets/main/imgs/shop/thumbnail-7.jpg" alt="" /></a>
                         </figure>
                         <div class="col-md-8 mb-0">
                             <h6>
@@ -156,7 +156,7 @@
                     </article>
                     <article class="row align-items-center hover-up">
                         <figure class="col-md-4 mb-0">
-                            <a href="shop-product-right.html"><img src="assets/main/imgs/shop/thumbnail-8.jpg" alt="" /></a>
+                            <a href="shop-product-right.html"><img src="/assets/main/imgs/shop/thumbnail-8.jpg" alt="" /></a>
                         </figure>
                         <div class="col-md-8 mb-0">
                             <h6>
@@ -176,7 +176,7 @@
                     </article>
                     <article class="row align-items-center hover-up">
                         <figure class="col-md-4 mb-0">
-                            <a href="shop-product-right.html"><img src="assets/main/imgs/shop/thumbnail-9.jpg" alt="" /></a>
+                            <a href="shop-product-right.html"><img src="/assets/main/imgs/shop/thumbnail-9.jpg" alt="" /></a>
                         </figure>
                         <div class="col-md-8 mb-0">
                             <h6>
@@ -201,7 +201,7 @@
                 <div class="product-list-small animated animated">
                     <article class="row align-items-center hover-up">
                         <figure class="col-md-4 mb-0">
-                            <a href="shop-product-right.html"><img src="assets/main/imgs/shop/thumbnail-10.jpg" alt="" /></a>
+                            <a href="shop-product-right.html"><img src="/assets/main/imgs/shop/thumbnail-10.jpg" alt="" /></a>
                         </figure>
                         <div class="col-md-8 mb-0">
                             <h6>
@@ -221,7 +221,7 @@
                     </article>
                     <article class="row align-items-center hover-up">
                         <figure class="col-md-4 mb-0">
-                            <a href="shop-product-right.html"><img src="assets/main/imgs/shop/thumbnail-11.jpg" alt="" /></a>
+                            <a href="shop-product-right.html"><img src="/assets/main/imgs/shop/thumbnail-11.jpg" alt="" /></a>
                         </figure>
                         <div class="col-md-8 mb-0">
                             <h6>
@@ -241,7 +241,7 @@
                     </article>
                     <article class="row align-items-center hover-up">
                         <figure class="col-md-4 mb-0">
-                            <a href="shop-product-right.html"><img src="assets/main/imgs/shop/thumbnail-12.jpg" alt="" /></a>
+                            <a href="shop-product-right.html"><img src="/assets/main/imgs/shop/thumbnail-12.jpg" alt="" /></a>
                         </figure>
                         <div class="col-md-8 mb-0">
                             <h6>

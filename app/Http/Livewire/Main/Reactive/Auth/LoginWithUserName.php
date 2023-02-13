@@ -20,18 +20,18 @@ class LoginWithUserName extends Component
     public $error;
 
     protected $rules = [
-        'username'=>['required','min:3','max:255'],
-        'password'=>['required', 'min:6', 'max:255']
+        'username' => ['required', 'min:3', 'max:255'],
+        'password' => ['required', 'min:6', 'max:255']
     ];
 
     protected $messages = [
-        'username.required'=>'وارد کردن نام کاربری یا ایمیل یا شماره اجباری است',
-        'password.required'=>'وارد کردن گذرواژه اجباری است',
-        'username.min'=>'نام کاربری باید حداقل 3 کاراکتر باشد',
-        'password.min'=>'گذر واژه باید حداقل 6 کاراکتر باشد'
+        'username.required' => 'وارد کردن نام کاربری یا ایمیل یا شماره اجباری است',
+        'password.required' => 'وارد کردن گذرواژه اجباری است',
+        'username.min' => 'نام کاربری باید حداقل 3 کاراکتر باشد',
+        'password.min' => 'گذر واژه باید حداقل 6 کاراکتر باشد'
     ];
 
-    public $rememberMe=false;
+    public $rememberMe = false;
     public function render()
     {
         return view('components\main\reactive\auth\login-with-user-name');
@@ -41,20 +41,22 @@ class LoginWithUserName extends Component
     {
         $data = $this->validate();
 
-        $user=$this->check($data);
+        try {
+            $user = $this->check($data);
 
-        if($user)
-        {
-            Auth::login($user);
+            if ($user) {
+                Auth::login($user);
 
-            if (Auth::hasUser())
-                return redirect()->to('/');
-            else
-                $this->error = "ورود با خطا مواجه شد";
-        }
-        else
+                if (Auth::hasUser())
+                    return redirect()->to('/');
+                else
+                    $this->error = "ورود با خطا مواجه شد";
+            } else {
+                $this->error = "نام کاربری یا رمز عبور اشتباه است";
+            }
+        }catch(\Exception $e)
         {
-            $this->error = "نام کاربری یا رمز عبور اشتباه است";
+            return redirect()->to('login');
         }
     }
 }

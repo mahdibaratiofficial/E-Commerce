@@ -11,7 +11,7 @@
         <meta property="og:url" content="" />
         <meta property="og:image" content="" />
         <!-- Favicon -->
-        <link rel="shortcut icon" type="image/x-icon" href="assets/main/imgs/theme/favicon.svg" />
+        <link rel="shortcut icon" type="image/x-icon" href="/assets/main/imgs/theme/favicon.svg" />
 
         <!-- Style Assets -->
         @include('layouts.assets_path.main_styles')
@@ -27,7 +27,7 @@
             <div class="mobile-header-wrapper-inner">
                 <div class="mobile-header-top">
                     <div class="mobile-header-logo">
-                        <a href="index.html"><img src="assets/main/imgs/theme/logo.svg" alt="logo" /></a>
+                        <a href="index.html"><img src="/assets/main/imgs/theme/logo.svg" alt="logo" /></a>
                     </div>
                     <div class="mobile-menu-close close-style-wrap close-style-position-inherit">
                         <button class="close-style search-close">
@@ -193,11 +193,11 @@
                     </div>
                     <div class="mobile-social-icon mb-50">
                         <h6 class="mb-15">Follow Us</h6>
-                        <a href="index.html#"><img src="assets/main/imgs/theme/icons/icon-facebook-white.svg" alt="" /></a>
-                        <a href="index.html#"><img src="assets/main/imgs/theme/icons/icon-twitter-white.svg" alt="" /></a>
-                        <a href="index.html#"><img src="assets/main/imgs/theme/icons/icon-instagram-white.svg" alt="" /></a>
-                        <a href="index.html#"><img src="assets/main/imgs/theme/icons/icon-pinterest-white.svg" alt="" /></a>
-                        <a href="index.html#"><img src="assets/main/imgs/theme/icons/icon-youtube-white.svg" alt="" /></a>
+                        <a href="index.html#"><img src="/assets/main/imgs/theme/icons/icon-facebook-white.svg" alt="" /></a>
+                        <a href="index.html#"><img src="/assets/main/imgs/theme/icons/icon-twitter-white.svg" alt="" /></a>
+                        <a href="index.html#"><img src="/assets/main/imgs/theme/icons/icon-instagram-white.svg" alt="" /></a>
+                        <a href="index.html#"><img src="/assets/main/imgs/theme/icons/icon-pinterest-white.svg" alt="" /></a>
+                        <a href="index.html#"><img src="/assets/main/imgs/theme/icons/icon-youtube-white.svg" alt="" /></a>
                     </div>
                     <div class="site-copyright">Copyright 2021 © Nest. All rights reserved. Powered by AliThemes.</div>
                 </div>
@@ -208,17 +208,6 @@
         @yield('content')
 
         <x-main.un-reactive.footer />
-
-        <!-- Preloader Start -->
-        <!-- <div id="preloader-active">
-            <div class="preloader d-flex align-items-center justify-content-center">
-                <div class="preloader-inner position-relative">
-                    <div class="text-center">
-                        <img src="assets/main/imgs/theme/loading.gif" alt="" />
-                    </div>
-                </div>
-            </div>
-        </div> -->
 
 
         @include('layouts.assets_path.main_scripts')

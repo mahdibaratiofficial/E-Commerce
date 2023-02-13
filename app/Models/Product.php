@@ -20,4 +20,16 @@ class Product extends Model
 
     protected $table='products';
 
+    /**
+     * Relation to Vendor Table
+     * 
+     * @return object this method return a vendor of products
+     */
+    public function vendor()
+    {
+        return $this->belongsTo(Vendor::class);
+    }
+
+    
+
 }

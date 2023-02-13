@@ -17,11 +17,9 @@ class PostTest extends TestCase
      */
     public function testInsertPostData()
     {
-        $data = Post::factory()->make()->toArray();
+        $post = Post::factory()->create()->toArray();
 
-        Post::create($data);
-
-        $this->assertDatabaseHas('posts', $data);
+        $this->assertDatabaseHas('posts', $post);
     }
 
 

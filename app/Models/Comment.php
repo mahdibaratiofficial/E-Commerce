@@ -17,4 +17,10 @@ class Comment extends Model
         'like',
         'dislike'
     ];
+
+
+    public function commentable()
+    {
+        return $this->morphTo();
+    }
 }

@@ -30,13 +30,13 @@ class Product extends Model
         return $this->belongsTo(Vendor::class);
     }
 
-
+    /**
+     * morph relation with comment
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\MorphMany
+     */
     public function comments()
     {
         return $this->morphMany(Comment::class,'commentable');
     }
-
-
-
-
 }

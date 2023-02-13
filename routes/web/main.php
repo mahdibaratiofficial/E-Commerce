@@ -11,7 +11,10 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\OAuth\OAuthFactoryController;
 use App\Http\Controllers\Auth\OtpController;
 use App\Http\Controllers\Auth\RegisterContoller;
+use App\Http\Controllers\Profile\ProfileController;
 use App\Models\ActiveCode;
+use App\Models\Post;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,11 +55,18 @@ Route::middleware(['auth'])->group(function () {
     // LogOut Roues-----------------------------------------
     Route::post('logout', [LoginController::class, 'logOut'])->name('logout');
     // End LogOut Roues-------------------------------------
+
+
+    // Profile Routes---------------------------------------
+    Route::get('@{user}/profile',[ProfileController::class,'getUser']);
+    // End Profile Routes-----------------------------------
 });
 
 
 Route::get('test', function () {
-    ActiveCode::generateCode();
+    $user=User::factory()->for(Post::factory())->create();
+
+    // ActiveCode::generateCode();
 });
 
 

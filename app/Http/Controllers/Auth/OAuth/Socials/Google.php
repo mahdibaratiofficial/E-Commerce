@@ -79,7 +79,4 @@ class Google implements socialsinterfaces
         }
     }   
 }
-
-
-
 ?>

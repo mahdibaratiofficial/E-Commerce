@@ -25,6 +25,8 @@ return new class extends Migration
 
             $table->bigInteger('views');
             
+            $table->integer('time_to_read');
+            
             $table->timestamps();
         });
     }

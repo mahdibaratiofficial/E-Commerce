@@ -18,6 +18,8 @@ return new class extends Migration
 
             $table->string('title')->default('unknown');
 
+            $table->string('slug')->unique();
+
             $table->tinyInteger('rate')->default(0);
 
             $table->text('descriotion');
@@ -28,7 +30,9 @@ return new class extends Migration
             $table->integer('quantity')->default(0);
 
             $table->integer('price');
-            
+
+            $table->integer('views')->default(0);
+
             $table->timestamps();
         });
     }

@@ -15,6 +15,21 @@ return new class extends Migration
     {
         Schema::create('vendors', function (Blueprint $table) {
             $table->id();
+
+            $table->string('vendor_name');
+
+            $table->tinyInteger('rate');
+
+            $table->text('presentation');
+
+            $table->tinyText('address');
+
+            $table->string('phone');
+
+            $table->string('email');
+
+            $table->tinyText('socials');
+            
             $table->timestamps();
         });
     }

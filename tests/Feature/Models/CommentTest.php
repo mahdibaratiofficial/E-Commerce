@@ -20,7 +20,7 @@ class CommentTest extends TestCase
     {
         $comment=Comment::factory()->create()->toArray();
 
-        // $this->assertDatabaseHas('comments',$comment);
+        $this->assertDatabaseHas('comments',$comment);
     }
 
     public function testCommentRelationWithPosts()
@@ -29,8 +29,6 @@ class CommentTest extends TestCase
 
         $this->assertTrue(is_array($comment) && count($comment)==3);
     }
-
-
     public function testCommentRelationWithProduct()
     {
         $comment=Comment::factory()->count(3)->for(Product::factory(),'commentable')->create()->toArray();

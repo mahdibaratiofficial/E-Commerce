@@ -37,9 +37,12 @@ class ProductTest extends TestCase
 
     public function testRelationWithCategory()
     {
-        $product=Product::factory()->for(Category::factory()->count(3))->create();
+        $product=Product::factory()->has(Category::factory()->count(3))->create();
 
-        $this->assertTrue(is_array($product->Categories()->toArray()) && count($product->Categories()->toArray()) ==3 );
+        $this->assertTrue(is_array($product->Categories->toArray()));
+
+        $this->assertTrue($product->Categories[0] instanceof Category);
+
+        $this->assertTrue(count($product->Categories->toArray()) == 3);
     }
 }
-+

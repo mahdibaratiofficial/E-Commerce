@@ -19,6 +19,9 @@ class Vendor extends Model
         'socials',
     ];
 
+
+    protected $table="vendors";
+
     /**
      * Relation to Product
      *
@@ -27,5 +30,15 @@ class Vendor extends Model
     public function products()
     {
         return $this->hasMany(Product::class);
+    }
+
+    /**
+     * Who User Fallow This Vendor?
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function users()
+    {
+        return $this->belongsToMany(User::class,'user_vendor');
     }
 }

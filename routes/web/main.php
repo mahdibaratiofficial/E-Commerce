@@ -15,6 +15,7 @@ use App\Http\Controllers\Profile\ProfileController;
 use App\Models\ActiveCode;
 use App\Models\Post;
 use App\Models\User;
+use App\Models\Vendor;
 
 /*
 |--------------------------------------------------------------------------
@@ -64,9 +65,10 @@ Route::middleware(['auth'])->group(function () {
 
 
 Route::get('test', function () {
-    $user=User::factory()->for(Post::factory())->create();
+    $vendor=Vendor::factory()->has(User::factory()->count(3))->create();
 
-    // ActiveCode::generateCode();
+    dd($vendor->users[0]);
+
 });
 
 

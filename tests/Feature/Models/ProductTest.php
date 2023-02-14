@@ -2,6 +2,7 @@
 
 namespace Tests\Feature\Models;
 
+use App\Models\Category;
 use App\Models\Product;
 use App\Models\Vendor;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -32,4 +33,13 @@ class ProductTest extends TestCase
         $this->assertTrue($product->vendor instanceof Vendor);
     
     }
+
+
+    public function testRelationWithCategory()
+    {
+        $product=Product::factory()->for(Category::factory()->count(3))->create();
+
+        $this->assertTrue(is_array($product->Categories()->toArray()) && count($product->Categories()->toArray()) ==3 );
+    }
 }
++

@@ -72,4 +72,10 @@ class User extends Authenticatable
     {
         return 'username';
     }
+
+
+    public function vendors()
+    {
+        return $this->belongsToMany(Vendor::class,'user_vendor');
+    }
 }

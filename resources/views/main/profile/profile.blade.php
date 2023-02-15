@@ -58,6 +58,15 @@
                                         </li>
 
 
+                                        
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="change-password-tab" data-bs-toggle="tab"
+                                                href="page-account.html#change-password" role="tab"
+                                                aria-controls="change-password" aria-selected="true"><i
+                                                    class="fi-rs-user mr-10"></i>تغییر رمز عبور</a>
+                                        </li>
+
+
                                         <li class="nav-item">
                                             <form method="POST" action="/logout">
                                                 @csrf
@@ -233,6 +242,18 @@
                                             </div>
                                         </div>
                                     </div>
+
+
+                                    <div class="tab-pane fade col-12" id="change-password" role="tabpanel"
+                                    aria-labelledby="change-password-tab">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            </p>
+                                            <livewire:main.reactive.auth.reset-password >
+                                        </div>
+                                    </div>
+                                </div>
+
                                 </div>
                             </div>
                         </div>

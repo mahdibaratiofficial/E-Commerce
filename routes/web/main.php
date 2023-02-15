@@ -11,11 +11,13 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\OAuth\OAuthFactoryController;
 use App\Http\Controllers\Auth\OtpController;
 use App\Http\Controllers\Auth\RegisterContoller;
+use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Profile\ProfileController;
 use App\Models\ActiveCode;
 use App\Models\Post;
 use App\Models\User;
 use App\Models\Vendor;
+use Illuminate\Auth\Notifications\ResetPassword;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,11 +48,23 @@ Route::middleware(['guest'])->group(function () {
     // OAuth Routes----------------------------------------------------------------------
     Route::get('oauth/{social}', [OAuthFactoryController::class, 'openOAuthPage'])->name('oauth');
     Route::get('oauth/{social}/check', [OAuthFactoryController::class, 'OAuthCallBack'])->name('oauth.callback');
+
+    // login with number --------------------------------------------------------------------
+    Route::post('login-with-number', [OtpController::class, 'login'])->name('otp.login');
+
     // Ends OAuth Routes------------------------------------------------------------------
 
 });
 
-Route::post('login-with-number', [OtpController::class, 'login'])->name('otp.login');
+// Authentication status is not important for this routes:
+
+
+// Reset Password Routes------------------------------------------------------------------
+Route::get('password/reset',[ResetPasswordController::class,'openpage']);
+Route::post('generate/password/reset',[ResetPasswordController::class,'generateAResetPassword'])->name('generate.password.reset');
+Route::get('change/password/{token}',[ResetPasswordController::class,'ResetPasswordPage'])->name('password.change');
+Route::post('reset/password',[ResetPasswordController::class,'resetPassword'])->name('reset.password');
+
 
 Route::middleware(['auth'])->group(function () {
     // LogOut Roues-----------------------------------------
@@ -65,10 +79,7 @@ Route::middleware(['auth'])->group(function () {
 
 
 Route::get('test', function () {
-    $vendor=Vendor::factory()->has(User::factory()->count(3))->create();
-
-    dd($vendor->users[0]);
-
+    dd(PasswordReset::where('email','mahdibarati696@gmail.com')->get());
 });
 
 

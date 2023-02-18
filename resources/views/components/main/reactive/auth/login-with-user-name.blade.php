@@ -26,7 +26,7 @@
                         یادت باشه</span></label>
             </div>
         </div>
-        <a class="text-muted shabnam" href="page-login.html#">رمز عبور
+        <a class="text-muted shabnam" href="/password/reset">رمز عبور
             خود را
             فراموش کرده اید?</a>
     </div>

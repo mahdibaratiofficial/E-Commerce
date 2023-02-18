@@ -1,11 +1,5 @@
 <?php
 
-use App\Models\PasswordReset;
-use GuzzleHttp\Client;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\OAuth\OAuthFactoryController;
@@ -13,11 +7,12 @@ use App\Http\Controllers\Auth\OtpController;
 use App\Http\Controllers\Auth\RegisterContoller;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Profile\ProfileController;
-use App\Models\ActiveCode;
-use App\Models\Post;
+use App\Http\Controllers\SingleProductController;
+use App\Models\Category;
+use App\Models\Comment;
+use App\Models\Product;
 use App\Models\User;
 use App\Models\Vendor;
-use Illuminate\Auth\Notifications\ResetPassword;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,7 +25,7 @@ use Illuminate\Auth\Notifications\ResetPassword;
 |
 */
 
-Route::view('/', 'main.index');
+Route::view('/', 'main.index')->name('home');
 
 
 Route::middleware(['guest'])->group(function () {
@@ -38,7 +33,6 @@ Route::middleware(['guest'])->group(function () {
     Route::view('/login', 'auth.login')->name('login');
     Route::post('/login', [LoginController::class, 'login'])->name('login');
     //End Login Routes---------------------------------------------
-
 
     // Register Routes------------------------------------------------------
     Route::view('register', 'auth.register')->name('register');
@@ -48,23 +42,24 @@ Route::middleware(['guest'])->group(function () {
     // OAuth Routes----------------------------------------------------------------------
     Route::get('oauth/{social}', [OAuthFactoryController::class, 'openOAuthPage'])->name('oauth');
     Route::get('oauth/{social}/check', [OAuthFactoryController::class, 'OAuthCallBack'])->name('oauth.callback');
+    // OAuth Routes Ends-----------------------------------------------------------------
 
     // login with number --------------------------------------------------------------------
     Route::post('login-with-number', [OtpController::class, 'login'])->name('otp.login');
-
     // Ends OAuth Routes------------------------------------------------------------------
-
 });
 
-// Authentication status is not important for this routes:
 
+/*
+* Authentication status is not important for this routes:
+*/
 
 // Reset Password Routes------------------------------------------------------------------
 Route::get('password/reset',[ResetPasswordController::class,'openpage']);
 Route::post('generate/password/reset',[ResetPasswordController::class,'generateAResetPassword'])->name('generate.password.reset');
 Route::get('change/password/{token}',[ResetPasswordController::class,'ResetPasswordPage'])->name('password.change');
 Route::post('reset/password',[ResetPasswordController::class,'resetPassword'])->name('reset.password');
-
+// Reset Password Routes Ends-------------------------------------------------------------
 
 Route::middleware(['auth'])->group(function () {
     // LogOut Roues-----------------------------------------
@@ -79,9 +74,16 @@ Route::middleware(['auth'])->group(function () {
 
 
 Route::get('test', function () {
-    dd(PasswordReset::where('email','mahdibarati696@gmail.com')->get());
+    Vendor::factory()->count(10)->create();
+    // Product::factory()->
+    //                     has(Comment::factory()->count(100))->
+    //                     has(Category::factory()->count(30))->
+    //                     count(500)->
+    //                     create();
+
+    // dd(PasswordReset::where('email','mahdibarati696@gmail.com')->get());
 });
 
 
-
-
+// Products Routes---------------------------------------------------------
+Route::get('product/{product}',[SingleProductController::class,'getProduct'])->name('product');

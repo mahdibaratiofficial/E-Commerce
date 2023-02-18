@@ -40,8 +40,8 @@ class ResetPasswordController extends Controller
         $submitedResetEmail = PasswordReset::where('email', $reset['email'])->first();
 
         if ($submitedResetEmail)
-            return true;    
-            // $this->sendResetPasswordLink($submitedResetEmail['email'], $submitedResetEmail['token']);
+            return true;
+        // $this->sendResetPasswordLink($submitedResetEmail['email'], $submitedResetEmail['token']);
     }
 
 
@@ -53,7 +53,7 @@ class ResetPasswordController extends Controller
             'expire_at' => Carbon::now()->addMinutes(60)
         ]);
 
-        PasswordReset::where('email',$email)->where('expire_at','<',now())->delete();
+        PasswordReset::where('email', $email)->where('expire_at', '<', now())->delete();
 
         return $reset;
     }
@@ -66,26 +66,26 @@ class ResetPasswordController extends Controller
 
     public function ResetPasswordPage($token)
     {
-        $latestToken=PasswordReset::max('expire_at');
+        $latestToken = PasswordReset::max('expire_at');
 
-        $PR_token = PasswordReset::where('token', $token)->where('expire_at',$latestToken)->first();
+        $PR_token = PasswordReset::where('token', $token)->where('expire_at', $latestToken)->first();
 
         if (!$PR_token instanceof PasswordReset)
-            return view('auth.resetpassword.resetpassword',['error'=>'not-found']);
+            return view('auth.resetpassword.resetpassword', ['error' => 'not-found']);
 
-        if($PR_token->expire_at < now())
-            return view('auth.resetpassword.resetpassword',['error'=>'expire']);
+        if ($PR_token->expire_at < now())
+            return view('auth.resetpassword.resetpassword', ['error' => 'expire']);
 
-        return view('auth.resetpassword.changePassword',['_reset_password_token'=>$PR_token->token]);
+        return view('auth.resetpassword.changePassword', ['_reset_password_token' => $PR_token->token]);
     }
 
     public function resetPassword(Request $request)
     {
-        $password=$this->validation($request);
+        $password = $this->validation($request);
 
-        $token=$this->checkToken($password['_reset_password_token']);
+        $token = $this->checkToken($password['_reset_password_token']);
 
-        $this->changePassword($token,$password['password']);
+        $this->changePassword($token, $password['password']);
 
         return redirect()->route('login');
     }
@@ -103,11 +103,11 @@ class ResetPasswordController extends Controller
         return $token;
     }
 
-    public function changePassword($token,$password)
+    public function changePassword($token, $password)
     {
-        $user=User::where('email',$token['email'])->first();
+        $user = User::where('email', $token['email'])->first();
 
-        if($user)
+        if ($user)
             $user->update(['password' => Hash::make($password)]);
 
         $this->deleteUsedToken($token['token']);
@@ -119,18 +119,18 @@ class ResetPasswordController extends Controller
     {
         return $request->validate([
             'password' => ['required', 'min:6'],
-            'password_confirmation' => ['required','same:password'],
+            'password_confirmation' => ['required', 'same:password'],
             '_reset_password_token' => ['required', 'exists:password_resets,token']
         ]);
     }
 
     public function deleteUsedToken($token)
     {
-        return PasswordReset::where('token',$token)->delete();
+        return PasswordReset::where('token', $token)->delete();
     }
 
     public function deleteExpireTokens()
     {
-        return PasswordReset::where('expire_at','<',now())->delete();
+        return PasswordReset::where('expire_at', '<', now())->delete();
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\View\Components\main\unReactive;
 
+use App\Models\Product;
 use Illuminate\View\Component;
 
 class PolularProductsColumns extends Component

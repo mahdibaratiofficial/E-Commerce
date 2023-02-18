@@ -19,6 +19,12 @@ class ActiveCode extends Model
     ];
 
 
+    protected $table="active_codes";
+
+    protected $primaryKey='code';
+
+
+
     public $timestamps = false;
 
 

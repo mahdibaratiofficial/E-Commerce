@@ -78,4 +78,9 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Vendor::class,'user_vendor');
     }
+
+    public function profilePicture()
+    {
+        return $this->morphOne(ProfilePicture::class,'profilable');
+    }
 }

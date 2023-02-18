@@ -2,6 +2,7 @@
 
 namespace Tests\Feature\Models;
 
+use App\Models\Image;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -10,16 +11,11 @@ use Tests\TestCase;
 
 class PostTest extends TestCase
 {
-    /**
-     * A basic feature test example.
-     *
-     * @return void
-     */
-    public function testInsertPostData()
-    {
-        $post = Post::factory()->create()->toArray();
+    use RefreshDatabase,ModelHelperTesting;
 
-        $this->assertDatabaseHas('posts', $post);
+    protected function model()
+    {
+        return new Post();
     }
 
 
@@ -33,5 +29,17 @@ class PostTest extends TestCase
 
         $this->assertTrue($post->user instanceof User);
         
+    }
+
+
+    public function testRelationWithImages()
+    {
+        $product=Post::factory()->has(Image::factory()->count(5))->create();
+
+        $this->assertTrue(isset($product->images[0]->id));
+
+        $this->assertTrue(count($product->images->toArray())==5);
+
+        $this->assertTrue($product->images[0] instanceof Image);
     }
 }

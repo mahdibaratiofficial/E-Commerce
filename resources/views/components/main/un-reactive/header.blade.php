@@ -70,11 +70,11 @@
                 <div class="logo logo-width-1">
                     <a href="index.html"><img src="/assets/main/imgs/theme/logo.svg" alt="logo" /></a>
                 </div>
-                <div class="header-right">
+                <div class="header-right" style="text-align: center !important">
                     <div class="search-style-2">
                         <form action="index.html#">
                             <select class="select-active">
-                                <option>All Categories</option>
+                                <option>همه دسته بندی ها</option>
                                 <option>Milks and Dairies</option>
                                 <option>Wines & Alcohol</option>
                                 <option>Clothing & Beauty</option>
@@ -158,13 +158,13 @@
                                 </div>
                             </div>
 
-                            <div class="header-action-icon-2">
+                            {{-- <div class="header-action-icon-2">
                                 <a href="shop-compare.html">
                                     <img class="svgInject" alt="Nest" src="/assets/main/imgs/theme/icons/icon-compare.svg" />
                                     <span class="pro-count blue">3</span>
                                 </a>
                                 <a href="shop-compare.html"><span class="lable ml-0">Compare</span></a>
-                            </div>
+                            </div> --}}
                             <div class="header-action-icon-2">
                                 <a href="shop-wishlist.html">
                                     <img class="svgInject" alt="Nest" src="/assets/main/imgs/theme/icons/icon-heart.svg" />

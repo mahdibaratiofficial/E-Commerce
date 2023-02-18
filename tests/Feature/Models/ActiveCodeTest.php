@@ -9,17 +9,23 @@ use Tests\TestCase;
 
 class ActiveCodeTest extends TestCase
 {
-    /**
-     * A basic feature test example.
-     *
-     * @return void
-     */
-    public function testInsertActiveCode()
+    use RefreshDatabase, ModelHelperTesting;
+
+
+    protected function model()
     {
-        $activeCode=ActiveCode::factory()->make()->toArray();
+        return new ActiveCode();
+    }
 
-        $createdActiveCode=ActiveCode::create($activeCode);
+    public function testInsertToDataBase()
+    {
+        $model = $this->model();
+        $table = $model->getTable();
 
-        $this->assertTrue(isset($createdActiveCode->code));
+        $insert = $model::factory()->create()->toArray();
+
+        $this->assertDatabaseCount($table, 1);
+
+        $this->assertTrue(isset($insert['code']));
     }
 }

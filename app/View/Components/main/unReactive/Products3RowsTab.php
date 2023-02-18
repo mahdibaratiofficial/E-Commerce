@@ -2,6 +2,7 @@
 
 namespace App\View\Components\main\unReactive;
 
+use App\Models\Product;
 use Illuminate\View\Component;
 
 class Products3RowsTab extends Component
@@ -23,6 +24,6 @@ class Products3RowsTab extends Component
      */
     public function render()
     {
-        return view('components.main.un-reactive.products3-rows-tab');
+        return view('components.main.un-reactive.products3-rows-tab',['products'=>Product::paginate(5)]);
     }
 }

@@ -10,16 +10,11 @@ use Tests\TestCase;
 
 class CategoryTest extends TestCase
 {
-    /**
-     * A basic feature test example.
-     *
-     * @return void
-     */
-    public function testInsertCategory()
-    {
-        $category=Category::factory()->create()->toArray();
+    use RefreshDatabase,ModelHelperTesting;
 
-        $this->assertDatabaseHas('categories',$category);
+    protected function model()
+    {
+        return new Category();
     }
 
 

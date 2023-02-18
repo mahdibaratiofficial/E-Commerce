@@ -11,16 +11,11 @@ use Tests\TestCase;
 
 class CommentTest extends TestCase
 {
-    /**
-     * A basic feature test example.
-     *
-     * @return void
-    */
-    public function testInsertComment()
-    {
-        $comment=Comment::factory()->create()->toArray();
+    use RefreshDatabase,ModelHelperTesting;
 
-        $this->assertDatabaseHas('comments',$comment);
+    protected function model()
+    {
+        return new Comment();
     }
 
     public function testCommentRelationWithPosts()

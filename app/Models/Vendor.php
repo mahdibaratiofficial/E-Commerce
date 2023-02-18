@@ -9,7 +9,7 @@ class Vendor extends Model
 {
     use HasFactory;
 
-    protected $fillable=[
+    protected $fillable = [
         'vendor_name',
         'rate',
         'presentation',
@@ -20,7 +20,7 @@ class Vendor extends Model
     ];
 
 
-    protected $table="vendors";
+    protected $table = "vendors";
 
     /**
      * Relation to Product
@@ -39,6 +39,11 @@ class Vendor extends Model
      */
     public function users()
     {
-        return $this->belongsToMany(User::class,'user_vendor');
+        return $this->belongsToMany(User::class, 'user_vendor');
+    }
+
+    public function profile()
+    {
+        return $this->morphOne(ProfilePicture::class, 'profilable');
     }
 }

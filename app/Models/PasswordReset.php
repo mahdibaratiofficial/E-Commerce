@@ -14,4 +14,6 @@ class PasswordReset extends Model
 
     protected $table = 'password_resets';
 
+    protected $primaryKey="token";
+
 }

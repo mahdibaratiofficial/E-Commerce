@@ -42,7 +42,7 @@ class Vendor extends Model
         return $this->belongsToMany(User::class, 'user_vendor');
     }
 
-    public function profile()
+    public function profilePicture()
     {
         return $this->morphOne(ProfilePicture::class, 'profilable');
     }

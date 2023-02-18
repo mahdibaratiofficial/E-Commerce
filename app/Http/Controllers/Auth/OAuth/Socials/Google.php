@@ -1,5 +1,6 @@
 <?php
 namespace App\Http\Controllers\Auth\OAuth\Socials;
+
 use App\Http\Controllers\Auth\OAuth\socialsinterfaces;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -8,39 +9,37 @@ use PDO;
 
 class Google implements socialsinterfaces
 {
-    public function openOAuthPage($social='google')
+    public function openOAuthPage($social = 'google')
     {
         return Socialite::driver($social)->redirect();
     }
 
 
-    public function OAuthCallBack($social="google")
+    public function OAuthCallBack($social = "google")
     {
-        $user=Socialite::driver($social)->user();
+        $user = Socialite::driver($social)->user();
 
         if ($this->userExist($user->email))
             return $this->Login($user->email);
         else
             return $this->createUser($user->user);
-        
+
     }
 
     private function createUser($user)
     {
         // dd($user->user);
-        $data=[
-            'name'=>$user["name"],
-            'email'=>$user["email"],
+        $data = [
+            'name' => $user["name"],
+            'email' => $user["email"],
         ];
-        $userCreated=User::create($data);
+        $userCreated = User::create($data);
 
-        if ($userCreated)
-        {
+        if ($userCreated) {
             $this->verifyEmail($userCreated);
             return redirect('login');
         }
-        else
-        {
+        else {
             return redirect('register')->with('error');
         }
     }
@@ -50,14 +49,12 @@ class Google implements socialsinterfaces
         $user = User::where('email', $email)->first();
         Auth::login($user);
 
-        if (Auth::hasUser())
-        {
+        if (Auth::hasUser()) {
             $this->verifyEmail($user);
 
             return redirect('/');
         }
-        else
-        {
+        else {
             return redirect('login');
         }
     }
@@ -72,11 +69,10 @@ class Google implements socialsinterfaces
 
     private function verifyEmail(User $user)
     {
-        if ($user instanceof User)
-        {
+        if ($user instanceof User) {
             if (!$user->hasVerifiedEmail())
                 $user->markEmailAsVerified();
         }
-    }   
+    }
 }
 ?>

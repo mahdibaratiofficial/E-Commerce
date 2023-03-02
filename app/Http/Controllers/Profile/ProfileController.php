@@ -11,7 +11,8 @@ class ProfileController extends Controller
 {
     public function getUser(User $user)
     {
-        if(Auth::user()->username == $user->username)
+        $userInstance=$user;
+        if(Auth::user()->username == $userInstance->username)
             return view('main.profile.profile', compact('userInstance'));
     }
 }

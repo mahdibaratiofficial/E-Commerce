@@ -1,0 +1,7 @@
+{
+    "platform": "laravel",
+    "app": "e-commerce",
+    "laravel": {
+      "phpVersion": "8.1"
+    }
+}

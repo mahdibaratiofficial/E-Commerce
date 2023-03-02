@@ -30,6 +30,8 @@ return new class extends Migration
             $table->integer('like')->default('0');
             $table->integer('dislike')->default('0');
 
+            $table->boolean('approved')->default(0);
+
             $table->timestamps();
         });
     }

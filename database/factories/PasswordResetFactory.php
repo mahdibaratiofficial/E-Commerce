@@ -21,7 +21,7 @@ class PasswordResetFactory extends Factory
     {
         return [
             'email'=>$this->faker->email(),
-            'token'=>Str::random(15),
+            'token'=>Str::random(64),
             'expire_at'=>now()->addHours(1)
         ];
     }

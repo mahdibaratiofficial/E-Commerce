@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('user_vendor',function(Blueprint $table){
             $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('user')->cascadeOnDelete();
+            $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete();
 
             $table->unsignedBigInteger('vendor_id');
             $table->foreign('vendor_id')->references('id')->on('vendors')->cascadeOnDelete();

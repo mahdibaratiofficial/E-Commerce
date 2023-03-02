@@ -8,11 +8,16 @@ use App\Http\Controllers\Auth\RegisterContoller;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Profile\ProfileController;
 use App\Http\Controllers\SingleProductController;
+use App\Models\Attribute;
+use App\Models\attributeValue;
 use App\Models\Category;
 use App\Models\Comment;
+use App\Models\Image;
 use App\Models\Product;
 use App\Models\User;
 use App\Models\Vendor;
+use App\Services\Cart\CartService;
+use Database\Factories\AttributeFactory;
 
 /*
 |--------------------------------------------------------------------------
@@ -73,8 +78,27 @@ Route::middleware(['auth'])->group(function () {
 });
 
 
-Route::get('test', function () {
-    Vendor::factory()->count(10)->create();
+Route::get('test/', function () {
+    $product=Product::find(1);
+
+    dd(Comment::find(7)->childs);
+
+    // dd($product->attribute[0]->pivot->value);
+    // DB::query('ALTER USER \'root\'@\'localhost\' IDENTIFIED BY "" ');
+
+    // Product::factory()->hasAttached(Attribute::factory(),['value_id'=>2])->create();
+
+    // $attr=attributeValue::factory()->for(Attribute::factory())->create();
+    // $category=Category::find(1);s
+
+    // dd($category);
+    // $product=Product::where("id",372)->first();
+
+    // dd($product->getCategory());
+
+    // Product::factory()->has(Image::factory()->count(6))->create();
+    // User::factory()->count(10)->create();
+    // Vendor::factory()->count(10)->create();
     // Product::factory()->
     //                     has(Comment::factory()->count(100))->
     //                     has(Category::factory()->count(30))->
@@ -87,3 +111,10 @@ Route::get('test', function () {
 
 // Products Routes---------------------------------------------------------
 Route::get('product/{product}',[SingleProductController::class,'getProduct'])->name('product');
+
+
+// Cart------------------------
+
+Route::get('cart',function(CartService $cartService){
+    dd($cartService->add());
+});

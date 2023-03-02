@@ -20,10 +20,10 @@ class ProductFactory extends Factory
             'title'=>$this->faker->jobTitle(),
             'descriotion'=>$this->faker->paragraph(),
             'rate'=>rand(0,5),
-            'vendor_id'=>1,
             'quantity'=>rand(1,200),
             'price'=>rand(1000,20000),
             'slug'=>$this->faker->slug,
+            'vendor_id'=>1,
             'views'=>rand(100,1000000)
         ];
     }

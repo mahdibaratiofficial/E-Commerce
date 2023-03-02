@@ -83,4 +83,9 @@ class User extends Authenticatable
     {
         return $this->morphOne(ProfilePicture::class,'profilable');
     }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
 }

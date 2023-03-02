@@ -2,9 +2,11 @@
 
 namespace App\Providers;
 
+use App\Services\Cart\CartService;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\URL;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -15,7 +17,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->bind(CartService::class,function($app){
+            return new CartService('cookie');
+        });
     }
 
     /**
@@ -25,7 +29,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+
+        if ($this->app->environment('production')) {
+            URL::forceScheme('https');
+        }
+
         Schema::defaultStringLength(191);
-        
     }
 }

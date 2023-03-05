@@ -74,23 +74,7 @@
                                             <li><a href="shop-product-full.html#">150g</a></li>
                                         </ul>
                                     </div>
-                                    <div class="detail-extralink mb-50">
-                                        <div class="detail-qty border radius">
-                                            <a href="shop-product-full.html#" class="qty-down"><i
-                                                    class="fi-rs-angle-small-down"></i></a>
-                                            <span class="qty-val">1</span>
-                                            <a href="shop-product-full.html#" class="qty-up"><i
-                                                    class="fi-rs-angle-small-up"></i></a>
-                                        </div>
-                                        <div class="product-extra-link2">
-                                            <button type="submit" class="button button-add-to-cart shabnam"><i
-                                                    class="fi-rs-shopping-cart"></i>اضافه به سبد خرید</button>
-                                            <a aria-label="Add To Wishlist" class="action-btn hover-up"
-                                                href="shop-wishlist.html"><i class="fi-rs-heart"></i></a>
-                                            <a aria-label="Compare" class="action-btn hover-up" href="shop-compare.html"><i
-                                                    class="fi-rs-shuffle"></i></a>
-                                        </div>
-                                    </div>
+                                    <livewire:main.reactive.product.actions :product="$product" />
                                     <div class="font-xs">
                                         <ul class="mr-50 float-start">
                                             <li class="mb-5">Type: <span class="text-brand">Organic</span></li>

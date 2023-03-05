@@ -1,17 +1,19 @@
 <?php
 namespace App\Services\Cart;
 
+use App\Models\Product;
+
 interface CartContract
 {
-    public function add():void;
+    public function add(Product $product);
 
-    public function update();
+    public function update(Product $product);
 
-    public function remove();
+    public function remove(Product $product);
 
     public function all();
 
-    public function getById();
+    public function getById(Product $product);
 }
 
 

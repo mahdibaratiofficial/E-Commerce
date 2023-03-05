@@ -17,8 +17,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind(CartService::class,function($app){
-            return new CartService('cookie');
+        $this->app->singleton('cart',function($app){
+            return new CartService(config('settings.cart.cookie'));
         });
     }
 

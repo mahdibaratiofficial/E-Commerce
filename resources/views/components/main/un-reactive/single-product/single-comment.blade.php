@@ -1,6 +1,6 @@
 @foreach ($comments as $comment)
     <div class=" mb-4">
-        <div class="card-login">
+        <div class="card-login p-2 m-2">
             <div class="d-flex justify-content-between">
                 <div class="d-flex flex-row align-items-center mb-2">
                     <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(4).webp" alt="avatar" width="55"
@@ -33,7 +33,6 @@
 
 
             <div class="collapse mt-2" id="replayComment-{{ $comment->id }}">
-
                 <livewire:main.reactive.product.submit-comments :product="serialize($comment->commentable)" :parent="$comment->id" />
             </div>
         </div>

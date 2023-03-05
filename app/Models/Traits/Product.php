@@ -75,8 +75,7 @@ trait Product
     }
 
     public function getProduct(ModelsProduct $product)
-    {
-        
+    {   
         return view('main.product.product-fullpage',compact('product'));
     }
 

@@ -1,6 +1,7 @@
 <?php
 
-
+use App\Models\Product;
+use App\Services\Cart\Cart;
 
 if(!function_exists('safePrint'))
 {
@@ -13,5 +14,13 @@ if(!function_exists('safePrint'))
     }
 }
 
+
+if(!function_exists('cart'))
+{
+    function cart()
+    {
+        return Cart::class;
+    }
+}
 
 ?>

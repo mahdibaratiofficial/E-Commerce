@@ -14,10 +14,11 @@ use App\Models\Category;
 use App\Models\Comment;
 use App\Models\Image;
 use App\Models\Product;
-use App\Models\User;
-use App\Models\Vendor;
 use App\Services\Cart\CartService;
 use Database\Factories\AttributeFactory;
+use Illuminate\Support\Facades\Cookie;
+
+use App\Services\Cart\Cart;
 
 /*
 |--------------------------------------------------------------------------
@@ -79,33 +80,7 @@ Route::middleware(['auth'])->group(function () {
 
 
 Route::get('test/', function () {
-    $product=Product::find(1);
 
-    dd(Comment::find(7)->childs);
-
-    // dd($product->attribute[0]->pivot->value);
-    // DB::query('ALTER USER \'root\'@\'localhost\' IDENTIFIED BY "" ');
-
-    // Product::factory()->hasAttached(Attribute::factory(),['value_id'=>2])->create();
-
-    // $attr=attributeValue::factory()->for(Attribute::factory())->create();
-    // $category=Category::find(1);s
-
-    // dd($category);
-    // $product=Product::where("id",372)->first();
-
-    // dd($product->getCategory());
-
-    // Product::factory()->has(Image::factory()->count(6))->create();
-    // User::factory()->count(10)->create();
-    // Vendor::factory()->count(10)->create();
-    // Product::factory()->
-    //                     has(Comment::factory()->count(100))->
-    //                     has(Category::factory()->count(30))->
-    //                     count(500)->
-    //                     create();
-
-    // dd(PasswordReset::where('email','mahdibarati696@gmail.com')->get());
 });
 
 
@@ -115,6 +90,4 @@ Route::get('product/{product}',[SingleProductController::class,'getProduct'])->n
 
 // Cart------------------------
 
-Route::get('cart',function(CartService $cartService){
-    dd($cartService->add());
-});
+Route::view('cart', 'main.cart.cart');

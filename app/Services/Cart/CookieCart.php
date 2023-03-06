@@ -22,7 +22,7 @@ class CookieCart
             md5($product->id) => [
                 'title' => $product->title,
                 'price' => $product->price,
-                'quantity' => $quantity
+                'quantity' => $quantity ?? 1
             ]
         ];
 
@@ -33,11 +33,12 @@ class CookieCart
     }
     public function update(mixed $id, $quantity)
     {
-        $cookie = $this->getById($id);
+        $this->cookie[md5($id)]['quantity']=$quantity;
 
-        $cookie[md5($id)]['quantity'] = 2;
+        $this->cookie=json_encode($this->cookie);
 
-        $this->setCookie($cookie);
+        Cookie::queue('cart',$this->cookie,time()*2,'/');
+
     }
 
     public function remove(mixed $id)
@@ -61,7 +62,8 @@ class CookieCart
     }
     public function has(mixed $id)
     {
-        return in_array($this->id($id), array_keys($this->cookie)) ? true : false;
+        // dd($this->cookie);
+        return in_array($this->id($id), array_keys((array)$this->cookie)) ? true : false;
     }
 
     public function jsonCookieToArray()

@@ -11,7 +11,10 @@ class Actions extends Component
 
     public $product;
 
-    public $quantity;
+    public function boot()
+    {
+
+    }
 
     public function render()
     {
@@ -33,30 +36,55 @@ class Actions extends Component
         if (is_array($product))
             $product = Product::find($product['id']);
 
-        if(!Cart::add($product, $this->quantity))
-            return $this->addError('inventory','اتمام موجودی');
+        if (!Cart::add($product))
+            return $this->addError('inventory', 'اتمام موجودی');
         
+        $this->has($product['id']);
     }
 
     public function remove($key)
     {
         Cart::remove($key);
+
+        $this->has($key);
     }
 
     public function plus($id, $productQuantity)
     {
+        // dd($id);
         $cart = Cart::getById($id);
 
-        if ($cart[md5($id)]['quantity'] <= 5) {
+        // dd($cart[md5($id)]['quantity'] );
+        if ($cart[md5($id)]['quantity'] < 5) {
 
             if ($productQuantity < $cart[md5($id)]['quantity']) {
                 $this->addError('productQuantity', 'موجودی محصولات از سفارش درخواستی شما کمتر است.');
             }
 
             Cart::update($id, $cart[md5($id)]['quantity'] + 1);
+
         }
         else {
             return $this->addError('quantity', 'حد مجاز برای سفارش 5 عدد است');
         }
+
+        $this->has($id);
+    }
+
+    public function minus($id)
+    {
+        $cart = Cart::getById($id);
+
+        if (($cart[md5($id)]['quantity'] - 1) < 1)
+            $this->remove($cart['id']);
+
+        Cart::update($id, $cart[md5($id)]['quantity'] - 1);
+
+        $this->has($id);
+    }
+
+    public function has($id)
+    {
+        return Cart::has($id);
     }
 }

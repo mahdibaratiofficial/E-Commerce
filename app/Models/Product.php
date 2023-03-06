@@ -11,6 +11,7 @@ class Product extends Model
 {
     use HasFactory, Sluggable , TraitsProduct;
 
+    protected $with=['comments','images'];
     protected $fillable = [
         'title',
         'descriotion',

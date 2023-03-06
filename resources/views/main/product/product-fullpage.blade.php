@@ -111,7 +111,8 @@
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" id="Reviews-tab" data-bs-toggle="tab"
-                                            href="shop-product-full.html#Reviews">نظرات ({{ count($product->comments->where('approved',1)) }})</a>
+                                            href="shop-product-full.html#Reviews">نظرات
+                                            ({{ count($product->comments->where('approved', 1)) }})</a>
                                     </li>
                                 </ul>
                                 <div class="tab-content shop_info_tab entry-main-content">
@@ -121,7 +122,7 @@
                                     </div>
 
                                     <div class="tab-pane fade" id="Additional-info">
-                                        <x-main.un-reactive.single-product.additional-info :attriutes="$product->attribute" /> 
+                                        <x-main.un-reactive.single-product.additional-info :attriutes="$product->attribute" />
                                     </div>
 
                                     <div class="tab-pane fade" id="Vendor-info">

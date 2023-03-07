@@ -11,14 +11,11 @@ class Actions extends Component
 
     public $product;
 
-    public function boot()
-    {
-
-    }
+    protected $listeners = ['refresh' => '$refresh'];
 
     public function render()
     {
-        return view('components.main.reactive.product.actions');
+        return view('components.main.reactive.product.actions',['status'=>$this->has($this->product['id'])]);
     }
 
     public function addToWishList()
@@ -36,10 +33,9 @@ class Actions extends Component
         if (is_array($product))
             $product = Product::find($product['id']);
 
-        if (!Cart::add($product))
-            return $this->addError('inventory', 'اتمام موجودی');
-        
-        $this->has($product['id']);
+        Cart::add($product);
+
+        $this->emit('refresh');
     }
 
     public function remove($key)
@@ -68,7 +64,7 @@ class Actions extends Component
             return $this->addError('quantity', 'حد مجاز برای سفارش 5 عدد است');
         }
 
-        $this->has($id);
+        $this->emit('refresh');
     }
 
     public function minus($id)
@@ -80,7 +76,7 @@ class Actions extends Component
 
         Cart::update($id, $cart[md5($id)]['quantity'] - 1);
 
-        $this->has($id);
+        $this->emit('refresh');
     }
 
     public function has($id)

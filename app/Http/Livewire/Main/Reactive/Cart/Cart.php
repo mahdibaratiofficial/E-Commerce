@@ -8,9 +8,11 @@ use Livewire\Component;
 
 class Cart extends Component
 {
+    protected $listeners = ['refresh' => '$refresh'];
+
     public function render()
     {
-        return view('components.main.reactive.cart.cart',['carts'=>$this->allCarts()]);
+        return view('components.main.reactive.cart.cart', ['carts' => $this->allCarts()]);
     }
 
     public function allCarts()
@@ -20,12 +22,14 @@ class Cart extends Component
 
     public function remove($key)
     {
-        return ProductCart::remove($key);
+        ProductCart::remove($key);
+
+        $this->emit('refresh');
     }
 
     public function update()
     {
     }
 
-   
+
 }

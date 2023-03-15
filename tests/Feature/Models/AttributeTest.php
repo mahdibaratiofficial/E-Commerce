@@ -29,6 +29,5 @@ class AttributeTest extends TestCase
         $this->assertTrue(isset($attr->attributeValue));
 
         $this->assertTrue($attr->attributeValue[0] instanceof attributeValue);
-
     }
 }

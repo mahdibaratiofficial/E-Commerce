@@ -4,6 +4,7 @@ namespace Tests\Feature\Models;
 
 use App\Models\Category;
 use App\Models\Image;
+use App\Models\Like;
 use App\Models\Product;
 use App\Models\Vendor;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -51,5 +52,12 @@ class ProductTest extends TestCase
         $this->assertTrue(count($product->images->toArray())==5);
 
         $this->assertTrue($product->images[0] instanceof Image);
+    }
+
+    public function testRelationWithLikes()
+    {
+        $product=Product::factory()->has(Like::factory()->count(1))->create();
+
+        $this->assertTrue(isset($product->likes));
     }
 }

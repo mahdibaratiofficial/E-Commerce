@@ -2,6 +2,7 @@
 
 namespace Tests\Feature\Models;
 
+use App\Models\Like;
 use App\Models\Post;
 use App\Models\ProfilePicture;
 use App\Models\User;
@@ -9,6 +10,7 @@ use App\Models\Vendor;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Support\Facades\Hash;
+use Livewire\Commands\PublishCommand;
 use Tests\TestCase;
 
 class UserTest extends TestCase
@@ -40,5 +42,12 @@ class UserTest extends TestCase
         $this->assertTrue($user->profilePicture instanceof ProfilePicture);
 
         $this->assertDatabaseHas('profile_pictures',$user->profilePicture->toArray());
+    }
+
+    public function testRelationWithLikes()
+    {
+        $user=User::factory()->has(Like::factory()->count(10))->create();
+
+        $this->assertTrue(isset($user->likes));
     }
 }

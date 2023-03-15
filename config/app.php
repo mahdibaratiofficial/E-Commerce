@@ -2,6 +2,7 @@
 
 use App\Services\Cart\CartService;
 use Illuminate\Support\Facades\Facade;
+use App\Services\RecentlyView\Facade\RecentlyView;
 
 return [
 
@@ -195,6 +196,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        App\Services\RecentlyView\RecentlyViewProvider::class
 
     ],
 
@@ -211,7 +213,8 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,
-        'cart'=>CartService::class
+        'cart'=>CartService::class,
+        'Recently'=>RecentlyView::class
     ])->toArray(),
 
 ];

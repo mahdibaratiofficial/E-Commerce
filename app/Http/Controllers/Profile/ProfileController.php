@@ -9,10 +9,13 @@ use Illuminate\Support\Facades\Auth;
 
 class ProfileController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function getUser(User $user)
     {
-        $userInstance=$user;
-        if(Auth::user()->username == $userInstance->username)
-            return view('main.profile.profile', compact('userInstance'));
+        return view('main.profile.profile');
     }
 }

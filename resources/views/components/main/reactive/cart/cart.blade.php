@@ -43,8 +43,15 @@
                 </td>
                 <td class="action text-center">
                     {{-- Make it Later --}}
-                    <button class="button action-btn hover-up" wire:click="remove('{{ $key }}')"><i
-                            class="fi-rs-trash"></i></button>
+                    <button class="button action-btn hover-up" wire:click="remove('{{ $key }}')">
+                        <div wire:loading.remove>
+                            <i class="fi-rs-trash"></i>
+                        </div>
+
+                        <div wire:loading>
+                            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                        </div>
+                    </button>
                 </td>
             </tr>
         @endforeach

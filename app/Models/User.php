@@ -54,7 +54,7 @@ class User extends Authenticatable
      */
     public function posts()
     {
-       return $this->hasMany(Post::class);
+        return $this->hasMany(Post::class);
     }
 
     /**
@@ -62,7 +62,7 @@ class User extends Authenticatable
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany 
      */
-    public function activeCode():HasMany
+    public function activeCode(): HasMany
     {
         return $this->hasMany(ActiveCode::class);
     }
@@ -76,12 +76,12 @@ class User extends Authenticatable
 
     public function vendors()
     {
-        return $this->belongsToMany(Vendor::class,'user_vendor');
+        return $this->belongsToMany(Vendor::class, 'user_vendor');
     }
 
     public function profilePicture()
     {
-        return $this->morphOne(ProfilePicture::class,'profilable');
+        return $this->morphOne(ProfilePicture::class, 'profilable');
     }
 
     public function comments()
@@ -91,6 +91,18 @@ class User extends Authenticatable
 
     public function carts()
     {
-        return $this->hasMany(Cart::class,'user_id','id');
+        return $this->hasMany(Cart::class, 'user_id', 'id');
+    }
+
+    public function likes()
+    {
+        return $this->hasMany(Like::class);
+    }
+
+    public function userProductLikes()
+    {
+        $user = $this->likes()->where('likeable_type', 'App\Models\Product')->get();
+
+        return $user ?? null;
     }
 }

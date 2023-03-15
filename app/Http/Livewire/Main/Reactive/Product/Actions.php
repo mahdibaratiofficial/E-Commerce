@@ -15,7 +15,7 @@ class Actions extends Component
 
     public function render()
     {
-        return view('components.main.reactive.product.actions',['status'=>$this->has($this->product['id'])]);
+        return view('components.main.reactive.product.actions', ['status' => $this->has($this->product['id'])]);
     }
 
     public function addToWishList()
@@ -82,5 +82,20 @@ class Actions extends Component
     public function has($id)
     {
         return Cart::has($id);
+    }
+
+    public function likeit($id=null)
+    {
+        $product = Product::find($id);
+
+        if ($product) {
+            if ($product->isLiked())
+                $product->unlike();
+            else
+                $product->like();
+        }
+
+        $this->emit('refresh');
+        return $product->isLiked();
     }
 }

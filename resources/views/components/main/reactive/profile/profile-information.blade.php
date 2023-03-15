@@ -15,7 +15,6 @@
             @error('user.username')
                 <span class="text text-muted"> {{ $message }} </span>
             @enderror
-
         </div>
         <div class="form-group col-md-12">
             <label>ایمیل <span class="required">:</span></label>

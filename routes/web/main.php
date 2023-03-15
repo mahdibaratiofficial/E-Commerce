@@ -6,19 +6,11 @@ use App\Http\Controllers\Auth\OAuth\OAuthFactoryController;
 use App\Http\Controllers\Auth\OtpController;
 use App\Http\Controllers\Auth\RegisterContoller;
 use App\Http\Controllers\Auth\ResetPasswordController;
+use App\Http\Controllers\LikePageController;
 use App\Http\Controllers\Profile\ProfileController;
 use App\Http\Controllers\SingleProductController;
-use App\Models\Attribute;
-use App\Models\attributeValue;
-use App\Models\Category;
-use App\Models\Comment;
-use App\Models\Image;
 use App\Models\Product;
-use App\Services\Cart\CartService;
-use Database\Factories\AttributeFactory;
-use Illuminate\Support\Facades\Cookie;
-
-use App\Services\Cart\Cart;
+use App\Services\RecentlyView\Facade\RecentlyView;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,7 +26,8 @@ use App\Services\Cart\Cart;
 Route::view('/', 'main.index')->name('home');
 
 
-Route::middleware(['guest'])->group(function () {
+Route::middleware(['guest'])->group(function ()
+{
     // Login Routes------------------------------------------------
     Route::view('/login', 'auth.login')->name('login');
     Route::post('/login', [LoginController::class, 'login'])->name('login');
@@ -57,37 +50,40 @@ Route::middleware(['guest'])->group(function () {
 
 
 /*
-* Authentication status is not important for this routes:
-*/
+ * Authentication status is not important for this routes:
+ */
 
 // Reset Password Routes------------------------------------------------------------------
-Route::get('password/reset',[ResetPasswordController::class,'openpage']);
-Route::post('generate/password/reset',[ResetPasswordController::class,'generateAResetPassword'])->name('generate.password.reset');
-Route::get('change/password/{token}',[ResetPasswordController::class,'ResetPasswordPage'])->name('password.change');
-Route::post('reset/password',[ResetPasswordController::class,'resetPassword'])->name('reset.password');
+Route::get('password/reset', [ResetPasswordController::class, 'openpage']);
+Route::post('generate/password/reset', [ResetPasswordController::class, 'generateAResetPassword'])->name('generate.password.reset');
+Route::get('change/password/{token}', [ResetPasswordController::class, 'ResetPasswordPage'])->name('password.change');
+Route::post('reset/password', [ResetPasswordController::class, 'resetPassword'])->name('reset.password');
 // Reset Password Routes Ends-------------------------------------------------------------
 
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth'])->group(function ()
+{
     // LogOut Roues-----------------------------------------
     Route::post('logout', [LoginController::class, 'logOut'])->name('logout');
     // End LogOut Roues-------------------------------------
 
 
     // Profile Routes---------------------------------------
-    Route::get('@{user}/profile',[ProfileController::class,'getUser']);
+    Route::get('/profile', [ProfileController::class, 'getUser']);
     // End Profile Routes-----------------------------------
 });
 
 
-Route::get('test/', function () {
-
+Route::get('test/', function ()
+{
 });
 
 
 // Products Routes---------------------------------------------------------
-Route::get('product/{product}',[SingleProductController::class,'getProduct'])->name('product');
+Route::get('product/{product}', [SingleProductController::class, 'getProduct'])->name('product');
 
 
 // Cart------------------------
 
 Route::view('cart', 'main.cart.cart');
+
+Route::get('like/{model}', [LikePageController::class, 'likePage']);

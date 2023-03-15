@@ -36,7 +36,7 @@
                     @enderror
                 </div>
 
-                <div wire:loading style="width:50%" class="text-center">
+                <div wire:loading wire:target='plus,minus' style="width:50%" class="text-center">
                     <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                 </div>
 
@@ -58,8 +58,21 @@
             @endif
         @endif
         <div class="card-login p-2 d-flex align-items-center">
-            <a aria-label="Add To Wishlist" class="action-btn hover-up" href="shop-wishlist.html"><i
-                    class="fi-rs-heart"></i></a>
+            <a aria-label="پسندیدن" class="action-btn hover-up" title="پسندیدن"
+                wire:click="likeit('{{ $product['id'] }}')"  >
+
+                <div wire:loading.remove wire:target="likeit">
+                    @if ($product->isLiked())
+                        <i class="fi-rs-shuffle"></i><span class="text-muted"> {{ $product->allLikes() }} </span>
+                    @else
+                        <i class="fi-rs-heart"></i><span class="text-muted"> {{ $product->allLikes() }} </span>
+                    @endif
+                </div>
+
+                <div wire:loading wire:target="likeit">
+                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                </div>
+            </a>
             <a aria-label="Compare" class="action-btn hover-up" href="shop-compare.html"><i
                     class="fi-rs-shuffle"></i></a>
         </div>

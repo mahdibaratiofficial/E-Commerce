@@ -85,7 +85,7 @@
                                         aria-labelledby="dashboard-tab">
                                         <div class="card">
                                             <div class="card-header">
-                                                <h3 class="mb-0 shabnam">{{ $userInstance->name }}</h3>
+                                                <h3 class="mb-0 shabnam">{{ auth()->user()->name }}</h3>
                                             </div>
                                             <div class="card-body">
                                                 <p>
@@ -224,7 +224,7 @@
                                             </div>
                                             <div class="card-body">
                                                 </p>
-                                                <livewire:main.reactive.profile.profile-information :user="$userInstance">
+                                                <livewire:main.reactive.profile.profile-information :user="auth()->user()">
                                             </div>
                                         </div>
                                     </div>

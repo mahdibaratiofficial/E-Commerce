@@ -3,6 +3,7 @@
 namespace Tests\Feature\Models;
 
 use App\Models\Image;
+use App\Models\Like;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -41,5 +42,12 @@ class PostTest extends TestCase
         $this->assertTrue(count($product->images->toArray())==5);
 
         $this->assertTrue($product->images[0] instanceof Image);
+    }
+
+    public function testRelationWithLikes()
+    {
+        $post=Post::factory()->has(Like::factory()->count(1))->create();
+
+        $this->assertTrue(isset($post->likes));
     }
 }

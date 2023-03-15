@@ -9,7 +9,7 @@ class Comment extends Model
 {
     use HasFactory;
 
-    protected $fillable=[
+    protected $fillable = [
         'user_id',
         'body',
         'commentable_id',
@@ -31,12 +31,18 @@ class Comment extends Model
     }
 
     public function childs()
-    {   
-        return $this->hasMany(Comment::class,'parent','id');
+    {
+        return $this->hasMany(Comment::class, 'parent', 'id');
     }
 
     public function parent()
     {
-        return $this->belongsTo(Comment::class,'parent','id');
+        return $this->belongsTo(Comment::class, 'parent', 'id');
+    }
+
+
+    public function likes()
+    {
+        return $this->morphMany(Like::class, 'likeable');
     }
 }

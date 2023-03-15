@@ -11,7 +11,8 @@
                             <li><a href="http://wp.alithemes.com/html/nest/demo-rtl/page-about.htlm">About Us</a></li>
                             <li><a href="page-account.html">My Account</a></li>
                             <li><a href="shop-wishlist.html">Wishlist</a></li>
-                            <li><a href="http://wp.alithemes.com/html/nest/demo-rtl/shop-order.html">Order Tracking</a></li>
+                            <li><a href="http://wp.alithemes.com/html/nest/demo-rtl/shop-order.html">Order Tracking</a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -31,30 +32,38 @@
                         <ul>
                             <li>Need help? Call Us: <strong class="text-brand"> + 1800 900</strong></li>
                             <li>
-                                <a class="language-dropdown-active" href="index.html#"><i class="fi-rs-angle-small-down"></i> English</a>
+                                <a class="language-dropdown-active" href="index.html#"><i
+                                        class="fi-rs-angle-small-down"></i> English</a>
                                 <ul class="language-dropdown">
                                     <li>
-                                        <a href="index.html#"><img src="/assets/main/imgs/theme/flag-fr.png" alt="" />Français</a>
+                                        <a href="index.html#"><img src="/assets/main/imgs/theme/flag-fr.png"
+                                                alt="" />Français</a>
                                     </li>
                                     <li>
-                                        <a href="index.html#"><img src="/assets/main/imgs/theme/flag-dt.png" alt="" />Deutsch</a>
+                                        <a href="index.html#"><img src="/assets/main/imgs/theme/flag-dt.png"
+                                                alt="" />Deutsch</a>
                                     </li>
                                     <li>
-                                        <a href="index.html#"><img src="/assets/main/imgs/theme/flag-ru.png" alt="" />Pусский</a>
+                                        <a href="index.html#"><img src="/assets/main/imgs/theme/flag-ru.png"
+                                                alt="" />Pусский</a>
                                     </li>
                                 </ul>
                             </li>
                             <li>
-                                <a class="language-dropdown-active" href="index.html#"><i class="fi-rs-angle-small-down"></i> USD</a>
+                                <a class="language-dropdown-active" href="index.html#"><i
+                                        class="fi-rs-angle-small-down"></i> USD</a>
                                 <ul class="language-dropdown">
                                     <li>
-                                        <a href="index.html#"><img src="/assets/main/imgs/theme/flag-fr.png" alt="" />INR</a>
+                                        <a href="index.html#"><img src="/assets/main/imgs/theme/flag-fr.png"
+                                                alt="" />INR</a>
                                     </li>
                                     <li>
-                                        <a href="index.html#"><img src="/assets/main/imgs/theme/flag-dt.png" alt="" />MBP</a>
+                                        <a href="index.html#"><img src="/assets/main/imgs/theme/flag-dt.png"
+                                                alt="" />MBP</a>
                                     </li>
                                     <li>
-                                        <a href="index.html#"><img src="/assets/main/imgs/theme/flag-ru.png" alt="" />EU</a>
+                                        <a href="index.html#"><img src="/assets/main/imgs/theme/flag-ru.png"
+                                                alt="" />EU</a>
                                     </li>
                                 </ul>
                             </li>
@@ -89,7 +98,7 @@
                             <input type="text" placeholder="Search for items..." />
                         </form>
                     </div>
-                    <div class="header-action-right">
+                    <div class="header-action-right ml-5">
                         <div class="header-action-2">
                             <div class="search-location">
                                 <form action="index.html#">
@@ -118,7 +127,6 @@
                                     <img alt="Nest" src="/assets/main/imgs/theme/icons/icon-cart.svg" />
                                     <span class="pro-count blue">{{ count(\App\Services\Cart\Cart::all()) }}</span>
                                 </a>
-                                <a href="/cart"><span class="lable">Cart</span></a>
                             </div>
 
                             {{-- <div class="header-action-icon-2">
@@ -129,43 +137,17 @@
                                 <a href="shop-compare.html"><span class="lable ml-0">Compare</span></a>
                             </div> --}}
                             <div class="header-action-icon-2">
-                                <a href="shop-wishlist.html">
-                                    <img class="svgInject" alt="Nest" src="/assets/main/imgs/theme/icons/icon-heart.svg" />
-                                    <span class="pro-count blue">6</span>
+                                <a href="/like/product">
+                                    <img class="svgInject" alt="Nest"
+                                        src="/assets/main/imgs/theme/icons/icon-heart.svg" />
                                 </a>
-                                <a href="shop-wishlist.html"><span class="lable">Wishlist</span></a>
                             </div>
-                            
+
                             <div class="header-action-icon-2">
-                                <a href="page-account.html">
-                                    <img class="svgInject" alt="Nest" src="/assets/main/imgs/theme/icons/icon-user.svg" />
+                                <a href="">
+                                    <img class="svgInject" alt="Nest"
+                                        src="/assets/main/imgs/theme/icons/icon-user.svg" />
                                 </a>
-                                <a href="{{ Auth::user() ? "/@".Auth::user()->username."/profile" : "/login" }} "><span class="lable ml-0">Account</span></a>
-                                <div class="cart-dropdown-wrap cart-dropdown-hm3  account-dropdown">
-                                    <ul>
-                                        <li>
-                                            <a href=" {{ Auth::user() ? "/@".Auth::user()->username."/profile" : "/login" }} "><i class="fi fi-rs-user mr-10"></i>My Account</a>
-                                        </li>
-                                        <li>
-                                            <a href="page-account.html"><i class="fi fi-rs-location-alt mr-10"></i>Order Tracking</a>
-                                        </li>
-                                        <li>
-                                            <a href="page-account.html"><i class="fi fi-rs-label mr-10"></i>My Voucher</a>
-                                        </li>
-                                        <li>
-                                            <a href="shop-wishlist.html"><i class="fi fi-rs-heart mr-10"></i>My Wishlist</a>
-                                        </li>
-                                        <li>
-                                            <a href="page-account.html"><i class="fi fi-rs-settings-sliders mr-10"></i>Setting</a>
-                                        </li>
-                                        <li>
-                                            <form method="POST" action="/logout">
-                                                @csrf
-                                                <button type="submit"><i class="fi fi-rs-sign-out mr-10"></i>Sign out</button>
-                                            </form>
-                                        </li>
-                                    </ul>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -206,7 +188,8 @@
                                 <ul>
                                     <li>
                                         <div class="shopping-cart-img">
-                                            <a href="shop-product-right.html"><img alt="Nest" src="/assets/main/imgs/shop/thumbnail-3.jpg" /></a>
+                                            <a href="shop-product-right.html"><img alt="Nest"
+                                                    src="/assets/main/imgs/shop/thumbnail-3.jpg" /></a>
                                         </div>
                                         <div class="shopping-cart-title">
                                             <h4><a href="shop-product-right.html">Plain Striola Shirts</a></h4>
@@ -218,7 +201,8 @@
                                     </li>
                                     <li>
                                         <div class="shopping-cart-img">
-                                            <a href="shop-product-right.html"><img alt="Nest" src="/assets/main/imgs/shop/thumbnail-4.jpg" /></a>
+                                            <a href="shop-product-right.html"><img alt="Nest"
+                                                    src="/assets/main/imgs/shop/thumbnail-4.jpg" /></a>
                                         </div>
                                         <div class="shopping-cart-title">
                                             <h4><a href="shop-product-right.html">Macbook Pro 2022</a></h4>

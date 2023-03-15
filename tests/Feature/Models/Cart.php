@@ -8,4 +8,5 @@ use Tests\TestCase;
 
 class Cart extends TestCase
 {
+    
 }

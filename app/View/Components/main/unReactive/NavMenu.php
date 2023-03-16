@@ -2,10 +2,13 @@
 
 namespace App\View\Components\main\unReactive;
 
+use App\Models\Category;
 use Illuminate\View\Component;
 
 class NavMenu extends Component
 {
+
+    public $categories=null;
     /**
      * Create a new component instance.
      *
@@ -13,7 +16,7 @@ class NavMenu extends Component
      */
     public function __construct()
     {
-        //
+        $this->getAllCategories();
     }
 
     /**
@@ -24,5 +27,11 @@ class NavMenu extends Component
     public function render()
     {
         return view('components.main.un-reactive.nav-menu');
+    }
+
+    public function getAllCategories()
+    {
+        if($cate=Category::select('title')->take(10)->get())
+            $this->categories= $cate;
     }
 }

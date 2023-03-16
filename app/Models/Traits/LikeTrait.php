@@ -30,15 +30,15 @@ trait LikeTrait
 
     public function unlike()
     {
-        if($this->likes()->where('user_id',1)->get())
-            return $this->likes()->where('user_id',1)->delete();
+        if ($this->likes()->where('user_id', 1)->get())
+            return $this->likes()->where('user_id', 1)->delete();
         else
             return null;
     }
 
-    public function isLiked()
+    public function isLiked($user = null)
     {
-        $like=$this->likes()->where('user_id',Auth::id())->first();
+        $like = $this->likes()->where('user_id', (!$user) ?? Auth::id())->first();
 
         return $like ? true : false;
     }
@@ -48,7 +48,7 @@ trait LikeTrait
         return count($this->likes);
     }
 
- 
+
 }
 
 

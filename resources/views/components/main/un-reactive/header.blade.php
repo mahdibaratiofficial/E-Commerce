@@ -95,7 +95,7 @@
                                 <option>Noodles & Rice</option>
                                 <option>Ice cream</option>
                             </select>
-                            <input type="text" placeholder="Search for items..." />
+                            <input type="text" placeholder="جستجو" class="searchBar"/>
                         </form>
                     </div>
                     <div class="header-action-right ml-5">

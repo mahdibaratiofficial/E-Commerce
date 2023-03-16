@@ -9,10 +9,6 @@ use Tests\TestCase;
 
 class PermissionTest extends TestCase
 {
-    use ModelHelperTesting;
-
-    public function model()
-    {
-        return new Permission();
-    }
+    
+    
 }

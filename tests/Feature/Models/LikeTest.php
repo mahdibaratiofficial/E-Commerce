@@ -19,10 +19,10 @@ class LikeTest extends TestCase
 
     public function testRelationWithUser()
     {
-        $like=Like::factory()->has(User::factory())->create();
+        $like=Like::factory()->for(User::factory()->count(1))->create();
 
-        dd($like);
-        
-        $this->assertTrue(isset($like->user));
+        dd($like->users);
+
+        $this->assertTrue($like->isLiked($like->user()));
     }
 }

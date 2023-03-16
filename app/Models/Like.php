@@ -23,8 +23,8 @@ class Like extends Model
         return $this->morphTo();
     }
 
-    public function user()
+    public function users()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsToMany(User::class);
     }
 }

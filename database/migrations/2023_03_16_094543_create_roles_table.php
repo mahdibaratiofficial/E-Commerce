@@ -13,15 +13,23 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('likes', function (Blueprint $table) {
+        Schema::create('roles', function (Blueprint $table)
+        {
             $table->id();
-            
+            $table->string('name');
+            $table->string('lable');
+        });
+
+        Schema::create('role_user', function (Blueprint $table)
+        {
+
+            $table->unsignedBigInteger('role_id');
+            $table->foreign('role_id')->references('id')->on('roles')->cascadeOnDelete();
+
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete();
 
-            $table->morphs('likeable');
-            
-            $table->unique(['user_id','likeable_id','likeable_type']);
+            $table->unique(['role_id', 'user_id']);
         });
     }
 
@@ -32,6 +40,7 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('likes');
+        Schema::dropIfExists('user_role');
+        Schema::dropIfExists('roles');
     }
 };

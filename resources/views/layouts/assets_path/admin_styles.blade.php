@@ -11,5 +11,7 @@
 <link rel="stylesheet" href="{{ asset('/assets/admin/css/vertical-layout-light/style.css') }}" />
 <link rel="stylesheet" href="{{ asset('/assets/admin/css/vertical-layout-light/rtl.css') }}" />
 <link rel="stylesheet" href="{{ asset('/assets/admin/vendors/mdi/css/materialdesignicons.min.css') }}">
+<link rel="stylesheet" href="{{ asset('vendor/file-manager/css/file-manager.css') }}">
+
 <!-- livewire Styles -->
 <livewire:styles />

@@ -19,3 +19,5 @@
 <script src="{{ asset('/assets/admin/js/dashboard.js') }}"></script>
 <script src="{{ asset('/assets/admin/js/Chart.roundedBarCharts.js') }}"></script>
 <!-- End custom js for this page-->
+
+<script src="{{ asset('vendor/file-manager/js/file-manager.js') }}"></script>

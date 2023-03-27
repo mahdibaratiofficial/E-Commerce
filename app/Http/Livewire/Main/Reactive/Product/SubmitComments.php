@@ -17,7 +17,7 @@ class SubmitComments extends Component
     protected $rules = [
         'body' => ['required', 'min:3', 'max:255'],
         'product' => ['required'],
-        'parent'=>['required']
+        'parent' => ['required']
     ];
     public function mount()
     {
@@ -31,20 +31,23 @@ class SubmitComments extends Component
 
     public function submitComment()
     {
+
         $data = $this->validate();
 
         $product = unserialize($data['product']);
 
-        // need refactoring
-
-
-        Auth::user()->comments()->create(
-            [
-                'body' => $data['body'],
-                'commentable_id' => $product->id,
-                'commentable_type' => get_class($product),
-                'parent'=>$this->parent
-            ]
-        );
+        try {
+            Auth::user()->comments()->create(
+                [
+                    'body' => $data['body'],
+                    'parent' => $data['parent'],
+                    'commentable_id' => $product->id,
+                    'commentable_type' => get_class($product),
+                ]
+            );
+        }
+        catch (\Exception $e) {
+            $this->addError('dontPostComment', 'کامنت شما ثبت نشد دوباره سعی کنید!');
+        }
     }
 }

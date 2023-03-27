@@ -48,7 +48,7 @@
     <div class="product-rate d-inline-block mb-30"></div>
     <div class="row">
         <div class="col-lg-8 col-md-12">
-            <livewire:main.reactive.product.submit-comments :product="serialize($comments[0]->commentable)" />
+            <livewire:main.reactive.product.submit-comments :product="$product" :parent="0" />
         </div>
     </div>
 </div>

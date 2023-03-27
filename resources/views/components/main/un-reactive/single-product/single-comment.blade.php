@@ -31,7 +31,6 @@
                 <x-main.un-reactive.single-product.single-comment :comments="$comment->childs" />
             </div>
 
-
             <div class="collapse mt-2" id="replayComment-{{ $comment->id }}">
                 <livewire:main.reactive.product.submit-comments :product="serialize($comment->commentable)" :parent="$comment->id" />
             </div>

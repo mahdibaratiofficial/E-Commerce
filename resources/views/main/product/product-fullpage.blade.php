@@ -23,7 +23,7 @@
                                     <div class="product-image-slider">
                                         @foreach ($product->images as $image)
                                             <figure class="border-radius-10">
-                                                <img src="{{ $image->url }}" alt="{{ $image->alt }}" />
+                                                <img src="{{ $image->url }}" alt="{{ $image->alt }}" loading="lazy" />
                                             </figure>
                                         @endforeach
                                     </div>
@@ -31,7 +31,7 @@
                                     <div class="slider-nav-thumbnails">
 
                                         @foreach ($product->images as $image)
-                                            <div><img src="{{ $image->url }}" alt="{{ $image->alt }}" /></div>
+                                            <div><img src="{{ $image->url }}" alt="{{ $image->alt }}" loading="lazy" /></div>
                                         @endforeach
                                     </div>
                                 </div>
@@ -118,7 +118,7 @@
                                 <div class="tab-content shop_info_tab entry-main-content">
 
                                     <div class="tab-pane fade show active" id="Description">
-                                        <x-main.un-reactive.single-product.description :description="$product->descriotion" />
+                                        <x-main.un-reactive.single-product.description :description="$product->description" />
                                     </div>
 
                                     <div class="tab-pane fade" id="Additional-info">
@@ -133,7 +133,7 @@
                                     <div class="tab-pane fade" id="Reviews">
                                         <!--Comments-->
                                         @if ($product->comments)
-                                            <x-main.un-reactive.single-product.comments :comments="$product->comments" />
+                                            <x-main.un-reactive.single-product.comments :product="serialize($product)" :comments="$product->comments" />
                                         @endif
                                     </div>
                                 </div>

@@ -8,9 +8,10 @@
                 </div>
             </div>
 
-            <form wire:submit.prevent="createProduct">
-                <div class="row">
-                    <div class="col-6 m-1">
+            <div class="row">
+                <div class="col-6 m-1">
+                    <form wire:submit.prevent="createProduct" id="productForm">
+
                         <div class="row">
                             <label for="name-desc">
                                 <h4> نام و توضیحات محصول </h4>
@@ -38,12 +39,19 @@
                             </label>
                             <div class=" col-12 p-3 mb-5 border rounded" id="name-desc">
                                 <div class="col-12">
-                                    <select class="form-control  rounded" wire:model.defer="product.vendor">
-                                        @foreach (\App\Models\Vendor::select(['id', 'vendor_name'])->get() as $vendor)
-                                            <option value="{{ $vendor->id }}" selected>{{ $vendor->vendor_name }}
+                                    <select class="form-control  rounded" wire:model.defer="product.category"
+                                        id="categories">
+                                        @foreach (\App\Models\Category::select(['id', 'title'])->get() as $category)
+                                            <option value="{{ $category->id }}"
+                                                wire:click="$set('product.category',$event.target.value)"
+                                                :key="{{ $category->id }}">{{ $category->title }}
                                             </option>
                                         @endforeach
                                     </select>
+
+                                    @error('product.category')
+                                        <span class="text text-danger"> {{ $message }} </span>
+                                    @enderror
                                 </div>
                             </div>
 
@@ -82,95 +90,120 @@
                             </label>
                             <div class=" col-12 p-3 mb-5 border rounded" id="name-desc">
                                 <div class="col-12">
-                                    <select class="form-control  rounded" wire:model.defer="product.vendor">
+                                    <select class="form-control  rounded" id="categories">
                                         @foreach (\App\Models\Vendor::select(['id', 'vendor_name'])->get() as $vendor)
-                                            <option value="{{ $vendor->id }}" selected>{{ $vendor->vendor_name }}
+                                            <option value="{{ $vendor->id }}"
+                                                wire:click="$set('product.vendor_id',$event.target.value)"
+                                                :key="{{ $vendor->id }}">{{ $vendor->vendor_name }}
                                             </option>
                                         @endforeach
                                     </select>
+
+                                    @error('product.vendor_id')
+                                        <span class="text text-danger"> {{ $message }} </span>
+                                    @enderror
                                 </div>
                             </div>
-
-
-
-
                             <div class="10">
                                 <button type="submit" class="btn btn-primary"> منتشر کردن محصول </button>
                             </div>
                         </div>
+                    </form>
+                </div>
+
+                <div class="col-5 m-1">
+
+                    <div class="row">
+                        <div class="col-12">
+                        </div>
                     </div>
+                    <div class="row">
 
-                    <div class="col-5 m-1">
-                        <div class="row">
-                            <label for="images">
-                                <h4> عکس ها </h4>
-                            </label>
-                            <div class="col-12 border rounded" style="height:200px" id="images">
 
-                                <div class="row d-flex justify-content-center align-items-center">
-                                    <div class="col-12">
+                        <label for="images">
+                            <h4> ویژگی های محصول </h4>
+                        </label>
+                        <div class="col-12 border rounded mb-3"id="images">
 
+                            <div class="row d-flex justify-content-center align-items-center" style="overflow:hidden">
+
+                                <div class="col-12 rounded m-2" wire:ignore>
+                                    <livewire:admin.reactive.product.attribute-component />
+                                </div>
+
+                                <div class="col-12 d-flex m-2">
+                                    <div class="row d-flex justify-content-center align-items-center">
+                                        @if ($attribute)
+                                            @foreach ($attribute as $attr)
+                                                <div class="col p-3">
+                                                    {{ '"' . $attr['name'] . '"' . ':' . $attr['value'] }} </div>
+                                            @endforeach
+                                        @endif
                                     </div>
-                                    <hr>
-                                    <div class="col-12">
-                                        <div class="input-group" style="direction:ltr">
-                                            <input type="text" id="image_label" class="form-control" name="image"
-                                                aria-label="Image" aria-describedby="button-image">
-                                            <div class="input-group-append">
-                                                <button class="btn btn-outline-primary" type="button"
-                                                    id="button-image">انتخاب</button>
-                                            </div>
+                                </div>
+                            </div>
+                        </div>
 
-                                        </div>
+
+
+                        <label for="images">
+                            <h4> عکس ها </h4>
+                        </label>
+                        <div class="col-12 border rounded"id="images">
+
+                            <div class="row d-flex justify-content-center align-items-center" style="overflow:hidden">
+
+                                <div class="col-12 rounded m-2" wire:ignore>
+                                    <livewire:admin.reactive.image.upload-image />
+                                </div>
+
+                                <div class="col-12 d-flex m-2">
+                                    <div class="row d-flex justify-content-center align-items-center">
+                                        @if ($images)
+                                            @foreach ($images as $image)
+                                                <div class="col-5 m-1">
+                                                    <img src="{{ $image }}" width="200px"
+                                                        style="border-radius:20px" />
+                                                </div>
+                                            @endforeach
+                                        @endif
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </form>
-
+            </div>
         </div>
 
     </div>
 </div>
 
-<script src="{{ asset('assets/admin/vendors/ckeditor/ckeditor.js') }}"></script>
-
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-
-        document.getElementById('button-image').addEventListener('click', (event) => {
-            event.preventDefault();
-
-            window.open('/file-manager/fm-button', 'fm', 'width=1400,height=800');
+@section('scripts')
+    <script>
+        $('#categories').select2({
+            'placeholder': 'دسترسی مورد نظر را انتخاب کنید'
         });
-    });
 
-    // set file link
-    function fmSetLink($url) {
-        document.getElementById('image_label').value = $url;
-    }
+        $('#vendor').select2({
+            'placeholder': 'فروشنده مورد نظر را انتخاب کنید'
+        });
+    </script>
+@endsection
 
-
-    // ClassicEditor.replace('description', {filebrowserImageBrowseUrl: '/file-manager/ckeditor'});
+<script src="{{ asset('assets/admin/vendors/ckeditor/build/ckeditor.js') }}"></script>
+<script>
+    var text;
     ClassicEditor
         .create(document.querySelector('#description'))
 
         .then(editor => {
-
-            editor.model.document.on('change:data', () => {
-
+            document.querySelector('#productForm').addEventListener('submit', function() {
                 @this.set('description', editor.getData());
-
-            })
-
+            });
         })
 
         .catch(error => {
-
             console.error(error);
-
         });
-
 </script>

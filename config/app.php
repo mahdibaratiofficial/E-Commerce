@@ -1,5 +1,6 @@
 <?php
 
+use App\Services\BreadCrumb\BreadCrumb;
 use App\Services\Cart\CartService;
 use Illuminate\Support\Facades\Facade;
 use App\Services\RecentlyView\Facade\RecentlyView;
@@ -196,7 +197,8 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        App\Services\RecentlyView\RecentlyViewProvider::class
+        App\Services\RecentlyView\RecentlyViewProvider::class,
+        App\Providers\BreadCrumbProvider::class,
 
     ],
 
@@ -214,7 +216,8 @@ return [
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,
         'cart'=>CartService::class,
-        'Recently'=>RecentlyView::class
+        'Recently'=>RecentlyView::class,
+        'BreadCrumb'=>BreadCrumb::class
     ])->toArray(),
 
 ];

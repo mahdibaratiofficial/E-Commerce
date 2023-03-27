@@ -51,7 +51,7 @@ trait Product
     {
         return [
             'slug' => [
-                'source'=>'slug'
+                'source'=>'title'
             ]
         ];
     }
@@ -69,7 +69,7 @@ trait Product
 
     public function attribute()
     {
-        return $this->belongsToMany(Attribute::class,'attribute_product','attribute_id','product_id')
+        return $this->belongsToMany(Attribute::class,'attribute_product','product_id','attribute_id')
                     ->using(ProductattributeValue::class)
                     ->withPivot('value_id');
     }

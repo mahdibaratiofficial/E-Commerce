@@ -249,6 +249,8 @@
     @once
         @include('layouts.assets_path.admin_scripts')
     @endonce
+
+    @yield('scripts')
 </body>
 
 </html>

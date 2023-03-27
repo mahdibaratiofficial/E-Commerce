@@ -16,7 +16,7 @@ class Product extends Model
     protected $with = ['comments', 'images'];
     protected $fillable = [
         'title',
-        'descriotion',
+        'description',
         'rate',
         'vendor_id',
         'price',

@@ -1,4 +1,5 @@
 <livewire:scripts />
+<script src="{{ asset('assets/admin/vendors/jquery/jquery-3.6.4.min.js') }}"></script>
 <script src="vendors/js/vendor.bundle.base.js"></script>
 <!-- endinject -->
 <!-- Plugin js for this page -->
@@ -18,6 +19,9 @@
 <!-- Custom js for this page-->
 <script src="{{ asset('/assets/admin/js/dashboard.js') }}"></script>
 <script src="{{ asset('/assets/admin/js/Chart.roundedBarCharts.js') }}"></script>
+
+<script src="{{ asset('assets/admin/vendors/select2/select2.min.js') }}"></script>
+
 <!-- End custom js for this page-->
 
 <script src="{{ asset('vendor/file-manager/js/file-manager.js') }}"></script>

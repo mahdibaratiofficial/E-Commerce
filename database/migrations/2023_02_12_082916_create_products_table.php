@@ -22,7 +22,7 @@ return new class extends Migration
 
             $table->tinyInteger('rate')->default(0);
 
-            $table->text('descriotion');
+            $table->text('description');
 
             $table->unsignedBigInteger('vendor_id')->default(0);
             $table->foreign('vendor_id')->references('id')->on('vendors')->cascadeOnDelete();

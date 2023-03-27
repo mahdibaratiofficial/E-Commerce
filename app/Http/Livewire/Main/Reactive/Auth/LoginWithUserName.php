@@ -8,6 +8,7 @@ use GuzzleHttp\Psr7\Request as Psr7Request;
 use Illuminate\Http\Client\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\URL;
 use Livewire\Component;
 
 class LoginWithUserName extends Component
@@ -48,7 +49,7 @@ class LoginWithUserName extends Component
                 Auth::login($user);
 
                 if (Auth::hasUser())
-                    return redirect()->to('/');
+                    return redirect(URL::previous());
                 else
                     $this->error = "ورود با خطا مواجه شد";
             } else {

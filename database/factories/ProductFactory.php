@@ -18,7 +18,7 @@ class ProductFactory extends Factory
     {
         return [
             'title'=>$this->faker->jobTitle(),
-            'descriotion'=>$this->faker->paragraph(),
+            'description'=>$this->faker->paragraph(),
             'rate'=>rand(0,5),
             'quantity'=>rand(1,200),
             'price'=>rand(1000,20000),

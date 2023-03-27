@@ -10,6 +10,7 @@ use App\Http\Controllers\LikePageController;
 use App\Http\Controllers\Profile\ProfileController;
 use App\Http\Controllers\SingleProductController;
 use App\Models\Product;
+use App\Services\BreadCrumb\BreadCrumb;
 use App\Services\RecentlyView\Facade\RecentlyView;
 
 /*
@@ -75,7 +76,9 @@ Route::middleware(['auth'])->group(function ()
 
 Route::get('test/', function ()
 {
-    
+    $prod=Product::find(107);
+
+    dd(BreadCrumb::set($prod)->Categories());
 });
 
 

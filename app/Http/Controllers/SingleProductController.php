@@ -9,10 +9,7 @@ use App\Services\RecentlyView\Facade\RecentlyView;
 class SingleProductController extends Controller
 {
 
-    public function __invoke()
-    {
-        
-    }
+   
     public function getProduct(Product $product)
     {
         RecentlyView::add($product);

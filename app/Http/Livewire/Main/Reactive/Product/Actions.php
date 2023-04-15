@@ -32,7 +32,7 @@ class Actions extends Component
     {
         if (is_array($product))
             $product = Product::find($product['id']);
-
+        
         Cart::add($product);
 
         $this->emit('refresh');
@@ -94,7 +94,7 @@ class Actions extends Component
             else
                 $product->like();
         }
-
+        
         $this->emit('refresh');
         return $product->isLiked();
     }

@@ -1,11 +1,7 @@
 <?php
 namespace App\Services\BreadCrumb;
 
-use App\Models\Product;
-use GuzzleHttp\Psr7\Request;
 use Illuminate\Routing\Route;
-
-use function PHPUnit\Framework\returnSelf;
 
 class BreadCrumbService
 {
@@ -20,11 +16,11 @@ class BreadCrumbService
     public function set($instance = null)
     {
         if (is_null($instance))
-            $instance = Route::current()->getPrefix();
+            $instance = request()->route()->getPrefix();
         else
             $this->instance = $instance;
 
-        if (is_string($instance))
+        if (is_string($this->instance))
             $this->instance = $this->createInstance($instance);
 
         return $this;
@@ -50,15 +46,18 @@ class BreadCrumbService
 
     private function getCategories()
     {
-        $categories = ($this->instance->Categories) ? $this->instance->Categories : false;
+        $categories = (count($this->instance->Categories) > 1) ? $this->instance->Categories : false;
 
-        $category=$categories[0];
+        if (!$categories)
+            return [];
+
+        $category = $categories[0];
 
         if ($categories) {
             while ($category->getParent()) {
-                $category=$category->getParent();
+                $category = $category->getParent();
 
-                $categories[]=$category;
+                $categories[] = $category;
             }
         }
 

@@ -8,7 +8,9 @@ use App\Http\Controllers\Auth\RegisterContoller;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\LikePageController;
 use App\Http\Controllers\Profile\ProfileController;
+use App\Http\Controllers\SinglePostController;
 use App\Http\Controllers\SingleProductController;
+use App\Http\Livewire\Main\Reactive\Product\ProductRightSideBar;
 use App\Models\Product;
 use App\Services\BreadCrumb\BreadCrumb;
 use App\Services\RecentlyView\Facade\RecentlyView;
@@ -76,14 +78,26 @@ Route::middleware(['auth'])->group(function ()
 
 Route::get('test/', function ()
 {
-    $prod=Product::find(107);
+    $prod = Product::find(107);
 
     dd(BreadCrumb::set($prod)->Categories());
 });
 
 
 // Products Routes---------------------------------------------------------
-Route::get('product/{product}', [SingleProductController::class, 'getProduct'])->name('product');
+Route::prefix('product')->group(function ()
+{
+    Route::get('{product}', [SingleProductController::class, 'getProduct'])->name('product');
+    Route::get('/', ProductRightSideBar::class);
+});
+
+
+Route::prefix('post')->group(function ()
+{
+    Route::get('/{post}', [SinglePostController::class, 'getPost']);
+    // Route::get('/', [SinglePostController::class, 'getPosts']);
+
+});
 
 
 // Cart------------------------

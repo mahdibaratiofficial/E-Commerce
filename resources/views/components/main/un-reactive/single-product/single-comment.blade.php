@@ -3,7 +3,7 @@
         <div class="card-login p-2 m-2">
             <div class="d-flex justify-content-between">
                 <div class="d-flex flex-row align-items-center mb-2">
-                    <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(4).webp" alt="avatar" width="55"
+                    <img loading="lazy" src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(4).webp" alt="avatar" width="55"
                         height="55" style="border-radius:50%" />
                     <p class="small mb-0 ms-2">{{ safePrint(@$comment->user->name,'بدون نام') }}</p>
                 </div>

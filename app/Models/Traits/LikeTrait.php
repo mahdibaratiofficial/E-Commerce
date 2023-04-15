@@ -13,18 +13,18 @@ trait LikeTrait
 {
     public function like()
     {
-        if (!Auth::user())
-            return redirect('/');
+        if (Auth::user()) {
+            
+            $like = new \App\Models\Like(['user_id' => Auth::id()]);
 
-        $like = new \App\Models\Like(['user_id' => Auth::id()]);
-
-        try {
-            $this->likes()->save($like);
-        }
-        catch (\Exception $e) {
-            // 23000 is code of ununique 
-            if ($e->getCode() == 23000)
-                return 'equal';
+            try {
+                $this->likes()->save($like);
+            }
+            catch (\Exception $e) {
+                // 23000 is code of ununique 
+                if ($e->getCode() == 23000)
+                    return 'equal';
+            }
         }
     }
 

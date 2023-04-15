@@ -14,6 +14,7 @@
     <link rel="shortcut icon" href="images/favicon.png" />
     <link rel="{{ asset('assets/admin/vendors/ckeditor/sample/css/sample.css') }}" />
 
+
 </head>
 
 <body>
@@ -21,9 +22,9 @@
         <!-- partial:partials/_navbar.html -->
         <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
             <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-                <a class="navbar-brand brand-logo ml-5" href="index.html"><img src="images/logo.svg" class="ml-2"
-                        alt="logo" /></a>
-                <a class="navbar-brand brand-logo-mini" href="index.html"><img src="images/logo-mini.svg"
+                <a class="navbar-brand brand-logo ml-5" href="index.html"><img loading="lazy" src="images/logo.svg"
+                        class="ml-2" alt="logo" /></a>
+                <a class="navbar-brand brand-logo-mini" href="index.html"><img loading="lazy" src="images/logo-mini.svg"
                         alt="logo" /></a>
             </div>
             <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
@@ -102,7 +103,7 @@
                     </li>
                     <li class="nav-item nav-profile dropdown">
                         <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-                            <img src="images/faces/face28.jpg" alt="profile" />
+                            <img loading="lazy" src="images/faces/face28.jpg" alt="profile" />
                         </a>
                         <div class="dropdown-menu dropdown-menu-right navbar-dropdown"
                             aria-labelledby="profileDropdown">
@@ -250,7 +251,7 @@
         @include('layouts.assets_path.admin_scripts')
     @endonce
 
-    @yield('scripts')
+    @yield('scrifupts')
 </body>
 
 </html>

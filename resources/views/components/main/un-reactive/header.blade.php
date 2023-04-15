@@ -36,15 +36,15 @@
                                         class="fi-rs-angle-small-down"></i> English</a>
                                 <ul class="language-dropdown">
                                     <li>
-                                        <a href="index.html#"><img src="/assets/main/imgs/theme/flag-fr.png"
+                                        <a href="index.html#"><img loading="lazy" src="/assets/main/imgs/theme/flag-fr.png"
                                                 alt="" />Français</a>
                                     </li>
                                     <li>
-                                        <a href="index.html#"><img src="/assets/main/imgs/theme/flag-dt.png"
+                                        <a href="index.html#"><img loading="lazy" src="/assets/main/imgs/theme/flag-dt.png"
                                                 alt="" />Deutsch</a>
                                     </li>
                                     <li>
-                                        <a href="index.html#"><img src="/assets/main/imgs/theme/flag-ru.png"
+                                        <a href="index.html#"><img loading="lazy" src="/assets/main/imgs/theme/flag-ru.png"
                                                 alt="" />Pусский</a>
                                     </li>
                                 </ul>
@@ -54,15 +54,15 @@
                                         class="fi-rs-angle-small-down"></i> USD</a>
                                 <ul class="language-dropdown">
                                     <li>
-                                        <a href="index.html#"><img src="/assets/main/imgs/theme/flag-fr.png"
+                                        <a href="index.html#"><img loading="lazy" src="/assets/main/imgs/theme/flag-fr.png"
                                                 alt="" />INR</a>
                                     </li>
                                     <li>
-                                        <a href="index.html#"><img src="/assets/main/imgs/theme/flag-dt.png"
+                                        <a href="index.html#"><img loading="lazy" src="/assets/main/imgs/theme/flag-dt.png"
                                                 alt="" />MBP</a>
                                     </li>
                                     <li>
-                                        <a href="index.html#"><img src="/assets/main/imgs/theme/flag-ru.png"
+                                        <a href="index.html#"><img loading="lazy" src="/assets/main/imgs/theme/flag-ru.png"
                                                 alt="" />EU</a>
                                     </li>
                                 </ul>
@@ -77,7 +77,7 @@
         <div class="container">
             <div class="header-wrap">
                 <div class="logo logo-width-1">
-                    <a href="index.html"><img src="/assets/main/imgs/theme/logo.svg" alt="logo" /></a>
+                    <a href="index.html"><img loading="lazy" src="/assets/main/imgs/theme/logo.svg" alt="logo" /></a>
                 </div>
                 <div class="header-right" style="text-align: center !important">
                     <div class="search-style-2">
@@ -124,7 +124,7 @@
 
                             <div class="header-action-icon-2">
                                 <a class="mini-cart-icon" href="/cart">
-                                    <img alt="Nest" src="/assets/main/imgs/theme/icons/icon-cart.svg" />
+                                    <img loading="lazy" alt="Nest" src="/assets/main/imgs/theme/icons/icon-cart.svg" />
                                     <span class="pro-count blue">{{ count(\App\Services\Cart\Cart::all()) }}</span>
                                 </a>
                             </div>
@@ -138,14 +138,14 @@
                             </div> --}}
                             <div class="header-action-icon-2">
                                 <a href="/like/product">
-                                    <img class="svgInject" alt="Nest"
+                                    <img loading="lazy" class="svgInject" alt="Nest"
                                         src="/assets/main/imgs/theme/icons/icon-heart.svg" />
                                 </a>
                             </div>
 
                             <div class="header-action-icon-2">
                                 <a href="">
-                                    <img class="svgInject" alt="Nest"
+                                    <img loading="lazy" class="svgInject" alt="Nest"
                                         src="/assets/main/imgs/theme/icons/icon-user.svg" />
                                 </a>
                             </div>
@@ -159,7 +159,7 @@
         <div class="container">
             <div class="header-wrap header-space-between position-relative">
                 <div class="logo logo-width-1 d-block d-lg-none">
-                    <a href="index.html"><img src="/assets/main/imgs/theme/logo.svg" alt="logo" /></a>
+                    <a href="index.html"><img loading="lazy" src="/assets/main/imgs/theme/logo.svg" alt="logo" /></a>
                 </div>
 
                 <x-main.un-reactive.nav-menu />
@@ -175,20 +175,20 @@
                     <div class="header-action-2">
                         <div class="header-action-icon-2">
                             <a href="shop-wishlist.html">
-                                <img alt="Nest" src="/assets/main/imgs/theme/icons/icon-heart.svg" />
+                                <img loading="lazy" alt="Nest" src="/assets/main/imgs/theme/icons/icon-heart.svg" />
                                 <span class="pro-count white">4</span>
                             </a>
                         </div>
                         <div class="header-action-icon-2">
                             <a class="mini-cart-icon" href="index.html#">
-                                <img alt="Nest" src="/assets/main/imgs/theme/icons/icon-cart.svg" />
+                                <img loading="lazy" alt="Nest" src="/assets/main/imgs/theme/icons/icon-cart.svg" />
                                 <span class="pro-count white">2</span>
                             </a>
                             <div class="cart-dropdown-wrap cart-dropdown-hm2">
                                 <ul>
                                     <li>
                                         <div class="shopping-cart-img">
-                                            <a href="shop-product-right.html"><img alt="Nest"
+                                            <a href="shop-product-right.html"><img loading="lazy" alt="Nest"
                                                     src="/assets/main/imgs/shop/thumbnail-3.jpg" /></a>
                                         </div>
                                         <div class="shopping-cart-title">
@@ -201,7 +201,7 @@
                                     </li>
                                     <li>
                                         <div class="shopping-cart-img">
-                                            <a href="shop-product-right.html"><img alt="Nest"
+                                            <a href="shop-product-right.html"><img loading="lazy" alt="Nest"
                                                     src="/assets/main/imgs/shop/thumbnail-4.jpg" /></a>
                                         </div>
                                         <div class="shopping-cart-title">

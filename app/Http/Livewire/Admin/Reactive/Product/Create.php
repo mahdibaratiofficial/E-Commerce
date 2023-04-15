@@ -32,14 +32,15 @@ class Create extends Component
     ];
 
     protected $listeners = [
-        'addImage',
-        'receiveAttribute'
+        'addImage' => 'addImage',
+        'receiveAttribute' => 'receiveAttribute',
+        'refresh' => '$refresh'
     ];
 
 
     public function mount()
     {
-        $this->productClone=Product::find(107);
+        $this->productClone = Product::find(107);
     }
     public function render()
     {
@@ -48,7 +49,7 @@ class Create extends Component
 
     public function createProduct()
     {
-        
+
         $data = $this->validate();
 
         $data['product']['description'] = $data['description'];
@@ -60,7 +61,7 @@ class Create extends Component
 
         $this->insertImages($product, $data['images']);
 
-        if($this->attribute)
+        if ($this->attribute)
             $this->setAttributes($product);
     }
 
@@ -70,14 +71,14 @@ class Create extends Component
             $this->images[] = $image;
     }
 
-    public function insertImages($product,array|object $images)
+    public function insertImages($product, array|object $images)
     {
         if (is_null($images))
             return false;
 
         $all = [];
 
-        foreach($images as $image) {
+        foreach ($images as $image) {
             $all[] = [
                 'url' => $image,
                 'alt' => 'noasdasd'
@@ -93,7 +94,9 @@ class Create extends Component
 
     public function receiveAttribute($data)
     {
-        $this->attribute[] = $data;
+        // dd($data);
+        if (!collect($this->attribute)->contains('name', $data['name']))
+            $this->attribute[] = $data;
     }
 
     public function setAttributes(Product $product)
@@ -116,20 +119,45 @@ class Create extends Component
 
         foreach ($attribute['instances'] as $names) {
             $attrId['attribute'][] = [
-                'attributeID'=>$names['name']->id,
-                'attributeValueID'=>$names['value']->id
+                'attributeID' => $names['name']->id,
+                'attributeValueID' => $names['value']->id
             ];
         }
 
 
 
-        if(!$attrId)
+        if (!$attrId)
             return false;
 
-        foreach($attrId['attribute'] as $attribute)
-        {
-            $product->attribute()->attach($attribute['attributeID'],['value_id'=>$attribute['attributeValueID']]);
+        foreach ($attrId['attribute'] as $attribute) {
+            $product->attribute()->attach($attribute['attributeID'], ['value_id' => $attribute['attributeValueID']]);
         }
+    }
+
+
+    public function removePicture($image)
+    {
+        $arrayNumber = array_search($image, $this->images);
+
+        if (in_array($image, $this->images))
+            unset($this->images[$arrayNumber]);
+
+        $this->emit('refresh');
+    }
+
+    public function removeAttrubute($attr)
+    {
+        $arrayNumber = false;
+
+        foreach ($this->attribute as $key => $attribute) {
+            if ($attribute['name'] == $attr)
+                $arrayNumber = $key;
+        }
+
+        if (is_numeric($arrayNumber) && $arrayNumber !== false)
+            unset($this->attribute[$arrayNumber]);
+
+        $this->emit('refresh');
     }
 
 }

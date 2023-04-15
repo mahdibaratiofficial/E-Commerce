@@ -44,7 +44,7 @@
 
                                     <a href="/oauth/google" class="social-login google-login"
                                         style="text-align: center">
-                                        <img src="//assets/main/imgs/theme/icons/logo-google.svg" alt="" />   
+                                        <img loading="lazy" src="//assets/main/imgs/theme/icons/logo-google.svg" alt="" />   
                                         <span class="shabnam">ورود با حساب گوگل</span>
                                     </a>
                                 </div>

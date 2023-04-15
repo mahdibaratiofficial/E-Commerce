@@ -58,21 +58,24 @@
             @endif
         @endif
         <div class="card-login p-2 d-flex align-items-center">
-            <a aria-label="پسندیدن" class="action-btn hover-up" title="پسندیدن"
-                wire:click="likeit('{{ $product['id'] }}')"  >
+            @if (Auth::user())
 
-                <div wire:loading.remove wire:target="likeit">
-                    @if ($product->isLiked())
-                        <i class="fi-rs-shuffle"></i><span class="text-muted"> {{ $product->allLikes() }} </span>
-                    @else
-                        <i class="fi-rs-heart"></i><span class="text-muted"> {{ $product->allLikes() }} </span>
-                    @endif
-                </div>
+                <a aria-label="پسندیدن" class="action-btn hover-up" title="پسندیدن"
+                    wire:click="likeit('{{ $product['id'] }}')">
 
-                <div wire:loading wire:target="likeit">
-                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-                </div>
-            </a>
+                    <div wire:loading.remove wire:target="likeit">
+                        @if ($product->isLiked())
+                            <i class="fi-rs-shuffle"></i><span class="text-muted"> {{ $product->allLikes() }} </span>
+                        @else
+                            <i class="fi-rs-heart"></i><span class="text-muted"> {{ $product->allLikes() }} </span>
+                        @endif
+                    </div>
+
+                    <div wire:loading wire:target="likeit">
+                        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                    </div>
+                </a>
+            @endif
             <a aria-label="Compare" class="action-btn hover-up" href="shop-compare.html"><i
                     class="fi-rs-shuffle"></i></a>
         </div>

@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Product;
 use App\Services\Cart\CartService;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\Schema;
@@ -29,7 +30,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-
+        
         if ($this->app->environment('production')) {
             URL::forceScheme('https');
         }

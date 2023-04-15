@@ -8,7 +8,7 @@
         <div class="container">
             <div class="row shabnam">
                 <div class="col-xl-8 col-lg-10 col-md-12 m-auto text-center">
-                    <p class="mb-20"><img src="assets/main/imgs/page/page-404.png" alt="" class="hover-up" /></p>
+                    <p class="mb-20"><img loading="lazy" src="assets/main/imgs/page/page-404.png" alt="" class="hover-up" /></p>
                     <h1 class="display-2 mb-30 shabnam">صفحه مورد نظر پیدا نشد</h1>
                     <p class="font-lg text-grey-700 mb-30 shabnam">
                         لینکی که روی آن کلیک کردید ممکن است خراب باشد یا صفحه حذف شده باشد.<br />

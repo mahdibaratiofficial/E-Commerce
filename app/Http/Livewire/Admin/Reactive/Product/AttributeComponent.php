@@ -16,6 +16,7 @@ class AttributeComponent extends Component
 
     public function submit($data)
     {
-        $this->emit('receiveAttribute',$data);
+        if ($data['name'] != "" && $data['value'] != "")
+            $this->emit('receiveAttribute', $data);
     }
 }

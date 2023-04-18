@@ -25,7 +25,6 @@ use App\Services\RecentlyView\Facade\RecentlyView;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::view('/', 'main.index')->name('home');
 
 
@@ -78,15 +77,17 @@ Route::middleware(['auth'])->group(function ()
 
 Route::get('test/', function ()
 {
+    
     $prod = Product::find(107);
 
-    dd(BreadCrumb::set($prod)->Categories());
+    dd(BreadCrumb::breadCrumb());
 });
 
 
 // Products Routes---------------------------------------------------------
 Route::prefix('product')->group(function ()
 {
+    
     Route::get('{product}', [SingleProductController::class, 'getProduct'])->name('product');
     Route::get('/', ProductRightSideBar::class);
 });

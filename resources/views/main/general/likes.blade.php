@@ -5,8 +5,8 @@
         <div class="page-header breadcrumb-wrap">
             <div class="container">
                 <div class="breadcrumb">
-                    <a href="index.html" rel="nofollow">Home<i class="fi-rs-home mr-5"></i></a>
-                    <span></span> Shop <span></span> Fillter
+                    <a href="/" rel="nofollow">خانه<i class="fi-rs-home mr-5"></i></a>
+                    <span></span> لایک ها 
                 </div>
             </div>
         </div>
@@ -14,8 +14,8 @@
             <div class="row">
                 <div class="col-xl-10 col-lg-12 m-auto">
                     <div class="mb-50">
-                        <h1 class="heading-2 mb-10">Your Wishlist</h1>
-                        <h6 class="text-body">There are <span class="text-brand">5</span> products in this list</h6>
+                        <h1 class="heading-2 mb-10"> لایک ها</h1>
+                        <h6 class="text-body"> <span class="text-brand">{{ count($instanses) }}</span> محصول مورد پسند شما یافت شد.</h6>
                     </div>
                     <div class="table-responsive shopping-summery">
                         <table class="table table-wishlist">

@@ -63,6 +63,19 @@ class BreadCrumbService
 
         return $categories ?? false;
     }
+
+
+    public function breadCrumb()
+    {
+        $segments['خانه']=url('/');
+
+        $urlSegments=request()->segments();
+
+        foreach($urlSegments as $segment)
+        {
+            $segments
+        }
+    }
 }
 
 
